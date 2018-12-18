@@ -1,0 +1,27 @@
+{
+  "name": "vibrant-corpse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemonyDesign/vibrant-corpse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LemonyDesign/vibrant-corpse/issues"
+  },
+  "homepage": "https://github.com/LemonyDesign/vibrant-corpse#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
