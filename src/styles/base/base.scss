@@ -1,0 +1,112 @@
+@import "_normalize";
+@import "variables";
+
+/* ==== BASE ==== */
+body {
+  font-family: "Inconsolata", monospace;
+  margin: 0;
+  padding: 0;
+  background: $background-color;
+  line-height: 1.5;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  padding-left: $main-padding;
+  padding-right: $main-padding;
+  margin: 0 auto;
+}
+.menu--settings {
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+/* ==== LAYOUT ==== */
+
+.sitehead {
+  padding: $main-padding * 2;
+}
+
+.masthead {
+  padding: $main-padding;
+}
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: $main-padding * 5;
+}
+.workshop {
+  padding: $main-padding;
+}
+.wordlists {
+  padding: $main-padding;
+  .generate {
+    margin-bottom: $main-padding * 2;
+    text-align: center;
+    &__corpses {
+      border: 1px dotted $text-color;
+      padding: $main-padding;
+    }
+  }
+}
+
+// MEDIA QUERIES
+@media (min-width: 768px) {
+  .masthead {
+    width: 66.66667%;
+  }
+  .workshop {
+    width: 50%;
+  }
+  .wordlists {
+    width: 50%;
+    padding: $main-padding;
+    .generate {
+      display: flex;
+      flex-flow: row wrap;
+      &__modifier,
+      &__base {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 930px;
+  }
+  .wordlists {
+    width: 40%;
+    padding-left: $main-padding * 2;
+  }
+  .workshop {
+    width: 60%;
+    padding-right: $main-padding * 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+  .wordlists {
+    width: 33.33334%;
+  }
+  .workshop {
+    width: 66.66667%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1410px;
+  }
+}
