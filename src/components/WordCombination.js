@@ -17,8 +17,8 @@ function WordCombination({
   }
 
   return (
-    <li className="corpse__items" corpseitem={corpseitem}>
-      <a href="#" onClick={handleClick}>
+    <li className="corpses__items" corpseitem={corpseitem}>
+      <a className="corpses__links" href="#" onClick={handleClick}>
         {isFavourite ? (
           <i className="fas fa-minus-circle" />
         ) : (

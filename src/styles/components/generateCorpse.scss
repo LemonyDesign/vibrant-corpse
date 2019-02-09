@@ -1,0 +1,30 @@
+@import "../base/_variables.scss";
+
+.corpses {
+  opacity: 0;
+  transition: opacity 2.5s;
+  -webkit-transition: opacity 2.5s;
+  border: 1px dotted #333;
+  padding: 1rem;
+  &__links {
+    color: $primary-color;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: $main-padding * 0.5;
+    transition: color 250ms ease-in-out;
+
+    // cursor: pointer;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+      color: lighten($primary-color, 10%);
+    }
+  }
+  &__workshop {
+    margin-top: $main-padding;
+  }
+}
+.corpses.active {
+  opacity: 1;
+}

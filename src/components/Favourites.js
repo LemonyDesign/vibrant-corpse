@@ -8,14 +8,6 @@ function Favourites({ favourites }) {
       <h2>Workshop</h2>
       <ol>
         <li>
-          <strong>Generate</strong> nouns and adjectives to create a list of
-          &lsquo;exquisite corpses&rsquo;
-        </li>
-        <li>
-          <i className="fas fa-plus-circle" /> appealing exquisite corpses to
-          the workshop area
-        </li>
-        <li>
           <strong>Select</strong> a corpse to start the timer and begin writing.
           Do not pause.
         </li>

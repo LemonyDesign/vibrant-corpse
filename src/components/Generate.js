@@ -10,7 +10,9 @@ function Generate({
   basewords,
   favourites,
   addFavourites,
-  removeFromFavourites
+  removeFromFavourites,
+  displayWorkshop,
+  workshop
 }) {
   function handleChange1(event) {
     receiveType(event.target.value, "modifier");
@@ -21,7 +23,19 @@ function Generate({
 
   return (
     <section className="wordlists">
-      <h2 className="wordlists__title">Generator</h2>
+      <h2 className="wordlists__title">Vibrant Corpse Generator</h2>
+
+      <ol>
+        <li>
+          <strong>Generate</strong> adjectives &amp; nouns OR adverbs &amp;
+          verbs to create a list of &lsquo;vibrant corpses&rsquo; by selecting
+          below.
+        </li>
+        <li>
+          <strong>Choose</strong> appealing vibrant corpses for workshopping
+        </li>
+        <li>Made your selections? Enter the workshop.</li>
+      </ol>
 
       <section className="generate">
         <ul className="generate__modifier menu--settings">
@@ -60,6 +74,8 @@ function Generate({
         favourites={favourites}
         addFavourites={addFavourites}
         removeFromFavourites={removeFromFavourites}
+        displayWorkshop={displayWorkshop}
+        workshop={workshop}
       />
     </section>
   );

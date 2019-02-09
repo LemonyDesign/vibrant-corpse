@@ -2,22 +2,6 @@
 .wordlists__title {
   text-align: center;
 }
-.generate__corpses {
-  opacity: 0;
-  transition: opacity 2.5s;
-  -webkit-transition: opacity 2.5s;
-  a {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: $main-padding * 0.5;
-    // cursor: pointer;
-    text-align: center;
-  }
-}
-.generate__corpses.active {
-  opacity: 1;
-}
 .generate {
   ul,
   .generator {

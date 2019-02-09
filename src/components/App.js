@@ -14,11 +14,13 @@ class App extends React.Component {
     this.state = {
       modifierWords: [],
       baseWords: [],
-      favourites: []
+      favourites: [],
+      workshop: false
     };
     this.receiveType = this.receiveType.bind(this);
     this.addFavourites = this.addFavourites.bind(this);
     this.removeFromFavourites = this.removeFromFavourites.bind(this);
+    this.displayWorkshop = this.displayWorkshop.bind(this);
   }
 
   // want to add this into the fetch content.results[0].definition
@@ -69,6 +71,12 @@ class App extends React.Component {
     });
   }
 
+  displayWorkshop() {
+    this.setState({
+      workshop: !this.state.workshop
+    });
+  }
+
   render() {
     return (
       <div className="app container">
@@ -92,16 +100,19 @@ class App extends React.Component {
         </header>
 
         <main className="main">
-          <Favourites favourites={this.state.favourites} />
-
           <Generate
             receiveType={this.receiveType}
+            displayWorkshop={this.displayWorkshop}
             modifiers={this.state.modifierWords}
             basewords={this.state.baseWords}
             addFavourites={this.addFavourites}
             removeFromFavourites={this.removeFromFavourites}
             favourites={this.state.favourites}
+            workshop={this.state.workshop}
           />
+          {this.state.workshop && (
+            <Favourites favourites={this.state.favourites} />
+          )}
         </main>
       </div>
     );
