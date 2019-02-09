@@ -7,7 +7,7 @@
   border: 1px dotted #333;
   padding: 1rem;
   &__links {
-    color: $primary-color;
+    color: $text-color;
     display: inline-block;
     text-decoration: none;
     font-size: 1rem;
@@ -16,13 +16,24 @@
 
     // cursor: pointer;
     text-align: center;
-    &:hover {
+    &:hover,
+    &.active {
       text-decoration: none;
-      color: lighten($primary-color, 10%);
+      color: $primary-color;
+      i {
+        color: $text-color;
+      }
     }
   }
   &__workshop {
-    margin-top: $main-padding;
+    margin: $main-padding 0;
+  }
+  &__error {
+    display: none;
+    &.show {
+      display: block;
+      color: red;
+    }
   }
 }
 .corpses.active {

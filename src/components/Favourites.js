@@ -6,12 +6,8 @@ function Favourites({ favourites }) {
   return (
     <section className="workshop">
       <h2>Workshop</h2>
-      <ol>
-        <li>
-          <strong>Select</strong> a corpse to start the timer and begin writing.
-          Do not pause.
-        </li>
-      </ol>
+      <p>Select a corpse to start the timer and begin writing. Do not pause.</p>
+
       <ul className="workshop__favourites menu--settings">
         {favourites.map(favourite => (
           <Favourite favourite={favourite} key={favourite} />

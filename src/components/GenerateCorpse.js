@@ -11,7 +11,8 @@ function GenerateCorpse({
   addFavourites,
   removeFromFavourites,
   displayWorkshop,
-  workshop
+  isClicked,
+  clicked
 }) {
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
@@ -21,8 +22,15 @@ function GenerateCorpse({
     "": !(notEmpty && sameLength)
   });
 
+  const errorclass = cx("corpses__error", {
+    show: clicked === true && favourites.length === 0
+  });
+
   function handleClick(event) {
-    displayWorkshop();
+    isClicked();
+    if (favourites.length !== 0) {
+      displayWorkshop();
+    }
   }
 
   return (
@@ -53,6 +61,10 @@ function GenerateCorpse({
       <button className="corpses__workshop" onClick={handleClick}>
         Get Workshopping <i className="fas fa-arrow-alt-circle-right" />
       </button>
+
+      <p className={errorclass}>
+        Please choose at least one vibrant corpse, or regenerate words.
+      </p>
     </section>
   );
 }

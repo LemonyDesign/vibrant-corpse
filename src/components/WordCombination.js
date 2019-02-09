@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/components/app.scss";
 import PropTypes from "prop-types";
+import cx from "classnames";
 
 function WordCombination({
   corpseitem,
@@ -15,10 +16,13 @@ function WordCombination({
       addFavourites(corpseitem);
     }
   }
+  const linksclasses = cx("corpses__links", {
+    active: isFavourite
+  });
 
   return (
     <li className="corpses__items" corpseitem={corpseitem}>
-      <a className="corpses__links" href="#" onClick={handleClick}>
+      <a className={linksclasses} href="#" onClick={handleClick}>
         {isFavourite ? (
           <i className="fas fa-minus-circle" />
         ) : (

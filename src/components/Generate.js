@@ -12,7 +12,8 @@ function Generate({
   addFavourites,
   removeFromFavourites,
   displayWorkshop,
-  workshop
+  isClicked,
+  clicked
 }) {
   function handleChange1(event) {
     receiveType(event.target.value, "modifier");
@@ -22,8 +23,8 @@ function Generate({
   }
 
   return (
-    <section className="wordlists">
-      <h2 className="wordlists__title">Vibrant Corpse Generator</h2>
+    <section className={wordlistsclass}>
+      <h2 className="wordlists__title">The Generator</h2>
 
       <ol>
         <li>
@@ -32,9 +33,9 @@ function Generate({
           below.
         </li>
         <li>
-          <strong>Choose</strong> appealing vibrant corpses for workshopping
+          <strong>Choose</strong> vibrant corpses for workshopping.
         </li>
-        <li>Made your selections? Enter the workshop.</li>
+        <li>Enter the workshop.</li>
       </ol>
 
       <section className="generate">
@@ -75,7 +76,8 @@ function Generate({
         addFavourites={addFavourites}
         removeFromFavourites={removeFromFavourites}
         displayWorkshop={displayWorkshop}
-        workshop={workshop}
+        isClicked={isClicked}
+        clicked={clicked}
       />
     </section>
   );
