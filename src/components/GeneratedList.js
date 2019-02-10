@@ -2,9 +2,9 @@ import React from "react";
 import WordCombination from "./WordCombination";
 import cx from "classnames";
 
-import "../styles/components/generateCorpse.scss";
+import "../styles/components/generatedList.scss";
 
-function GenerateCorpse({
+function GeneratedList({
   modifiers,
   basewords,
   favourites,
@@ -69,4 +69,4 @@ function GenerateCorpse({
   );
 }
 
-export default GenerateCorpse;
+export default GeneratedList;

@@ -3,7 +3,7 @@
 
 import React from "react";
 import Generate from "./Generate";
-import Favourites from "./Favourites";
+import Workshop from "./Workshop";
 
 import "../styles/base/base.scss";
 import "../styles/components/app.scss";
@@ -121,7 +121,7 @@ class App extends React.Component {
             clicked={this.state.clicked}
           />
           {this.state.workshop && (
-            <Favourites favourites={this.state.favourites} />
+            <Workshop favourites={this.state.favourites} />
           )}
         </main>
       </div>

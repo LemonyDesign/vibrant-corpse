@@ -1,5 +1,5 @@
 import React from "react";
-import GenerateCorpse from "./GenerateCorpse";
+import GeneratedList from "./GeneratedList";
 import Word from "./Word";
 
 import "../styles/components/generate.scss";
@@ -23,7 +23,7 @@ function Generate({
   }
 
   return (
-    <section className={wordlistsclass}>
+    <section className="wordlists">
       <h2 className="wordlists__title">The Generator</h2>
 
       <ol>
@@ -69,7 +69,7 @@ function Generate({
         </ul>
       </section>
 
-      <GenerateCorpse
+      <GeneratedList
         modifiers={modifiers}
         basewords={basewords}
         favourites={favourites}

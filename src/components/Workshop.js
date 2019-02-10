@@ -1,8 +1,8 @@
 import React from "react";
 import Favourite from "./Favourite";
-import "../styles/components/favourites.scss";
+import "../styles/components/workshop.scss";
 
-function Favourites({ favourites }) {
+function Workshop({ favourites }) {
   return (
     <section className="workshop">
       <h2>Workshop</h2>
@@ -18,4 +18,4 @@ function Favourites({ favourites }) {
   );
 }
 
-export default Favourites;
+export default Workshop;
