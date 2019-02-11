@@ -1,10 +1,14 @@
 import React from "react";
-import "../styles/components/app.scss";
+import "../styles/components/wordCombination.scss";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
 function WordCombination({
   corpseitem,
+  modifier,
+  baseword,
+  modifierdef,
+  baseworddef,
   isFavourite,
   removeFromFavourites,
   addFavourites
@@ -29,6 +33,19 @@ function WordCombination({
           <i className="fas fa-plus-circle" />
         )}{" "}
         {corpseitem}
+      </a>
+
+      <a className="tooltip" href="#">
+        <i className="fa fa-question-circle" />
+        <span className="tooltip-content">
+          <span className="tooltip-text">
+            <span className="tooltip-inner">
+              <span className="wd">{modifier}</span> {modifierdef}
+              <br />
+              <span className="wd">{baseword}</span> {baseworddef}
+            </span>
+          </span>
+        </span>
       </a>
     </li>
   );

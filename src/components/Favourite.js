@@ -24,11 +24,11 @@ class Favourite extends React.Component {
 
     return (
       <li className="workshop__listitem">
-        <h4>
+        <h3>
           <a href="#" className={favouriteclasses} onClick={this.handleClick}>
             {this.props.favourite}
           </a>
-        </h4>
+        </h3>
         {this.state.active ? <TimerMachine /> : null}
       </li>
     );

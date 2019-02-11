@@ -2,11 +2,12 @@
 
 .workshop {
   padding: 0 $main-padding * 1.5;
+
   width: 100%;
 
   &__textarea {
     width: 100%;
     height: 25vh;
-    padding: 1rem;
+    margin: $main-padding * 1.5 0;
   }
 }

@@ -6,26 +6,6 @@
   // transition: opacity 2.5s;
   text-align: center;
   padding: $main-padding 0;
-
-  &__items {
-    text-align: left;
-  }
-  &__links {
-    color: $text-color;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: $main-padding * 0.5;
-    text-align: center;
-    &:hover,
-    &.active {
-      text-decoration: none;
-      color: $primary-color;
-      i {
-        color: $text-color;
-      }
-    }
-  }
   &__workshop,
   &__regenerate {
     margin: $main-padding;

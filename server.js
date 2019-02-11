@@ -9,6 +9,16 @@ const wordsApi = process.env.WORDS_API;
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(bodyParser.json());
 
+function createWordObj(content) {
+  return Object.assign(
+    {},
+    {
+      word: content.word,
+      definition: content.results[0].definition
+    }
+  );
+}
+
 app.get("/api", (req, res) => {
   res.send("Testing");
 });
@@ -31,8 +41,9 @@ app.post("/api/words", function(req, res) {
       return response.json();
     })
     .then(content => {
-      return res.json(content.word);
+      return res.json(createWordObj(content));
     })
+
     .catch(console.error);
 });
 

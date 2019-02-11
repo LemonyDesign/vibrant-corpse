@@ -39,17 +39,26 @@ function GeneratedList({
 
   return (
     <section className={corpsesclasses}>
-      <h4>Choose for Workshop</h4>
+      <h2>Choose for Workshop</h2>
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
           ? modifiers.map((item, i) => {
-              const corpseitem = `${item} ${basewords[i]}`;
+              const modifier = item.word;
+              const baseword = basewords[i].word;
+              const modifierdef = item.definition;
+              const baseworddef = basewords[i].definition;
+
+              const corpseitem = `${item.word}  ${basewords[i].word}`;
               const isFavourite = favourites.find(currentFavourite => {
                 return currentFavourite === corpseitem;
               });
 
               return (
                 <WordCombination
+                  modifier={modifier}
+                  baseword={baseword}
+                  modifierdef={modifierdef}
+                  baseworddef={baseworddef}
                   corpseitem={corpseitem}
                   key={corpseitem}
                   isFavourite={isFavourite}

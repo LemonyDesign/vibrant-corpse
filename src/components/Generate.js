@@ -67,7 +67,7 @@ function Generate({
             </select>
           </li>
           {modifiers.map(modifier => {
-            return <Word key={modifier} modifier={modifier} />;
+            return <Word key={modifier.word} modifier={modifier.word} />;
           })}
         </ul>
         <ul className="generate__base menu--settings">
@@ -82,7 +82,7 @@ function Generate({
             </select>
           </li>
           {basewords.map(base => {
-            return <Word key={base} base={base} />;
+            return <Word key={base.word} baseword={base.word} />;
           })}
         </ul>
       </section>
