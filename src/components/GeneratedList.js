@@ -12,7 +12,8 @@ function GeneratedList({
   removeFromFavourites,
   displayWorkshop,
   isClicked,
-  clicked
+  clicked,
+  clearFetch
 }) {
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
@@ -32,10 +33,13 @@ function GeneratedList({
       displayWorkshop();
     }
   }
+  function handleRegenerate(event) {
+    clearFetch();
+  }
 
   return (
     <section className={corpsesclasses}>
-      <h4>Select for Workshop</h4>
+      <h4>Choose for Workshop</h4>
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
           ? modifiers.map((item, i) => {
@@ -59,7 +63,12 @@ function GeneratedList({
       </ul>
 
       <button className="corpses__workshop" onClick={handleClick}>
-        Get Workshopping <i className="fas fa-arrow-alt-circle-right" />
+        Start Workshopping <i className="fas fa-arrow-alt-circle-right" />
+      </button>
+
+      <button className="corpses__regenerate" onClick={handleRegenerate}>
+        <span className="show--screenreaders">Regenerate</span>
+        <i className="fas fa-redo" />
       </button>
 
       <p className={errorclass}>

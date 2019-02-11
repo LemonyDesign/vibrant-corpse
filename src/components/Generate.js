@@ -1,6 +1,7 @@
 import React from "react";
 import GeneratedList from "./GeneratedList";
 import Word from "./Word";
+import cx from "classnames";
 
 import "../styles/components/generate.scss";
 
@@ -12,8 +13,10 @@ function Generate({
   addFavourites,
   removeFromFavourites,
   displayWorkshop,
+  workshop,
   isClicked,
-  clicked
+  clicked,
+  clearFetch
 }) {
   function handleChange1(event) {
     receiveType(event.target.value, "modifier");
@@ -22,25 +25,39 @@ function Generate({
     receiveType(event.target.value, "base");
   }
 
+  const notEmpty = modifiers.length > 0 && basewords.length > 0;
+  const sameLength = modifiers.length === basewords.length;
+
+  const generateclass = cx("generate", {
+    completed: notEmpty && sameLength,
+    "": !(notEmpty && sameLength)
+  });
+
+  const wordlistclass = cx("wordlists", {
+    conceal: workshop === true
+  });
+
   return (
-    <section className="wordlists">
+    <section className={wordlistclass}>
       <h2 className="wordlists__title">The Generator</h2>
 
-      <ol>
+      <ol className="wordlists__intro">
         <li>
-          <strong>Generate</strong> adjectives &amp; nouns OR adverbs &amp;
-          verbs to create a list of &lsquo;vibrant corpses&rsquo; by selecting
-          below.
+          <strong>Generate</strong> words to create a list of &lsquo;vibrant
+          corpses&rsquo; by selecting below.
         </li>
         <li>
           <strong>Choose</strong> vibrant corpses for workshopping.
         </li>
-        <li>Enter the workshop.</li>
+        <li>
+          <strong>Start a workshop.</strong>{" "}
+        </li>
       </ol>
 
-      <section className="generate">
+      <section className={generateclass}>
         <ul className="generate__modifier menu--settings">
           <li>
+            <p>Adjective / Adverb</p>
             <select className="generator select1" onChange={handleChange1}>
               <option default value="default">
                 Select
@@ -55,6 +72,7 @@ function Generate({
         </ul>
         <ul className="generate__base menu--settings">
           <li>
+            <p>Noun / Verb</p>
             <select className="generator select2" onChange={handleChange2}>
               <option default value="default">
                 Select
@@ -78,6 +96,7 @@ function Generate({
         displayWorkshop={displayWorkshop}
         isClicked={isClicked}
         clicked={clicked}
+        clearFetch={clearFetch}
       />
     </section>
   );

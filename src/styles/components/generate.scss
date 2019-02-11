@@ -1,38 +1,48 @@
 @import "../base/_variables.scss";
-.wordlists__title {
-  text-align: center;
+.wordlists {
+  border: 1px dotted $text-color;
+  padding: $main-padding;
+  margin-bottom: $main-padding * 1.5;
+  transition: all 0.5s ease-out;
+
+  &.conceal {
+    display: none;
+  }
 }
+
 .generate {
-  ul,
-  .generator {
-    width: 75%;
+  margin-bottom: $main-padding * 2;
+
+  &.completed {
+    display: none;
   }
-  button {
-    display: inline-block;
-    width: 100%;
-    border: 1px dotted $text-color;
-    padding: $main-padding * 0.5 0;
-    margin: 0 0 $main-padding * 0.5 0;
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
+  &__modifier.menu--settings,
+  &__base.menu--settings {
+    margin-bottom: $main-padding * 1.5;
+  }
+}
+
+// MEDIA QUERIES
+@media (min-width: 768px) {
+  .wordlists {
+    width: 80%;
     text-align: center;
-    transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
+    &__intro {
+      text-align: left;
+    }
 
-  button:hover {
-    background: $text-color;
-    color: $background-color;
-  }
-
-  button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-  }
-
-  button:active {
-    transform: scale(0.99);
+    .generate {
+      display: flex;
+      flex-flow: row wrap;
+      text-align: center;
+      &__modifier.menu--settings,
+      &__base.menu--settings {
+        width: 50%;
+        margin-bottom: 0;
+      }
+      &.completed {
+        display: none;
+      }
+    }
   }
 }

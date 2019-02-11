@@ -27,6 +27,24 @@ img {
   height: auto;
   border-style: none;
 }
+a {
+  transition: all 250ms ease-in-out;
+}
+
+/* ---- Visibility ---- */
+.show--screenreaders,
+.show--focus {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
 
 /* ==== LAYOUT ==== */
 
@@ -35,78 +53,24 @@ img {
 }
 
 .masthead {
-  padding: $main-padding;
+  padding: $main-padding $main-padding * 1.5;
 }
 .main {
   display: flex;
   flex-flow: row wrap;
   padding-bottom: $main-padding * 5;
-}
-.workshop {
-  padding: $main-padding;
-}
-.wordlists {
-  padding: $main-padding;
-  .generate {
-    margin-bottom: $main-padding * 2;
-    text-align: center;
-    &__corpses {
-      border: 1px dotted $text-color;
-      padding: $main-padding;
-    }
-  }
+  justify-content: center;
 }
 
 // MEDIA QUERIES
 @media (min-width: 768px) {
-  .masthead {
-    width: 66.66667%;
-  }
-  .workshop {
-    width: 50%;
-  }
-  .wordlists {
-    width: 50%;
-    padding: $main-padding;
-    .generate {
-      display: flex;
-      flex-flow: row wrap;
-      &__modifier,
-      &__base {
-        width: 50%;
-      }
-    }
-  }
 }
 
 @media (min-width: 960px) {
   .container {
     max-width: 930px;
   }
-  .wordlists {
-    width: 40%;
-    padding-right: $main-padding * 2;
-  }
-  .workshop {
-    width: 60%;
-    padding-left: $main-padding * 2;
-  }
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1170px;
-  }
-  .wordlists {
-    width: 33.33334%;
-  }
-  .workshop {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1410px;
-  }
-}
+// @media (min-width: 1200px)
+// @media (min-width: 1440px)

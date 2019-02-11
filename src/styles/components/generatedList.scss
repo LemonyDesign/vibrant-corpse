@@ -1,20 +1,21 @@
 @import "../base/_variables.scss";
 
 .corpses {
-  opacity: 0;
-  transition: opacity 2.5s;
-  -webkit-transition: opacity 2.5s;
-  border: 1px dotted #333;
-  padding: 1rem;
+  display: none;
+  // opacity: 0;
+  // transition: opacity 2.5s;
+  text-align: center;
+  padding: $main-padding 0;
+
+  &__items {
+    text-align: left;
+  }
   &__links {
     color: $text-color;
     display: inline-block;
     text-decoration: none;
     font-size: 1rem;
     padding: $main-padding * 0.5;
-    transition: color 250ms ease-in-out;
-
-    // cursor: pointer;
     text-align: center;
     &:hover,
     &.active {
@@ -25,8 +26,32 @@
       }
     }
   }
-  &__workshop {
-    margin: $main-padding 0;
+  &__workshop,
+  &__regenerate {
+    margin: $main-padding;
+    display: inline-block;
+    width: auto;
+    border: 1px dotted $text-color;
+    padding: $main-padding * 0.5;
+    // margin: 0 0 $main-padding * 0.5 0;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+      background: $text-color;
+      color: $background-color;
+    }
+    &:focus {
+      outline: 1px solid #fff;
+      outline-offset: -4px;
+    }
+    &:active {
+      transform: scale(0.99);
+    }
   }
   &__error {
     display: none;
@@ -36,6 +61,27 @@
     }
   }
 }
+
 .corpses.active {
-  opacity: 1;
+  // opacity: 1;
+  display: block;
+}
+
+// MEDIA QUERIES
+@media (min-width: 768px) {
+  .corpses {
+    margin: 0 auto;
+    width: 75%;
+  }
+}
+
+@media (min-width: 960px) {
+  .corpses {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+@media (min-width: 1440px) {
 }

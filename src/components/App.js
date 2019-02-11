@@ -23,6 +23,7 @@ class App extends React.Component {
     this.removeFromFavourites = this.removeFromFavourites.bind(this);
     this.displayWorkshop = this.displayWorkshop.bind(this);
     this.isClicked = this.isClicked.bind(this);
+    this.clearFetch = this.clearFetch.bind(this);
   }
 
   // want to add this into the fetch content.results[0].definition
@@ -85,6 +86,13 @@ class App extends React.Component {
     });
   }
 
+  clearFetch() {
+    this.setState({
+      modifierWords: [],
+      baseWords: []
+    });
+  }
+
   render() {
     return (
       <div className="app container">
@@ -94,15 +102,14 @@ class App extends React.Component {
             <p>
               Vibrant corpse (<em>cadavre exquis</em> in French) is a game
               invented by the Surrealists aimed at stimulating creative
-              response. The method involves the collection and assemblage of
-              generated words or images, according to an agreed rule (in this
-              case &ldquo;Adjective-Noun&rdquo;).
+              response. The method involves the assemblage of generated words or
+              images, according to an agreed rule.
             </p>
             <p>
-              This game seeks to mimic the original by randomly generating lists
-              of adjectives and nouns and combining the results to create unique
-              combinations. Intriguing combinations may then be chosen for
-              'workshopping' – 5 minutes of free-flow writing.
+              This game seeks to mimic the original by randomly generating word
+              lists then combining the results to create intriguing combinations
+              that may be chosen for 'workshopping' – 5 minutes of free-flow
+              writing.
             </p>
           </div>
         </header>
@@ -112,6 +119,7 @@ class App extends React.Component {
             receiveType={this.receiveType}
             displayWorkshop={this.displayWorkshop}
             isClicked={this.isClicked}
+            clearFetch={this.clearFetch}
             modifiers={this.state.modifierWords}
             basewords={this.state.baseWords}
             addFavourites={this.addFavourites}
@@ -121,7 +129,10 @@ class App extends React.Component {
             clicked={this.state.clicked}
           />
           {this.state.workshop && (
-            <Workshop favourites={this.state.favourites} />
+            <Workshop
+              favourites={this.state.favourites}
+              workshop={this.state.workshop}
+            />
           )}
         </main>
       </div>

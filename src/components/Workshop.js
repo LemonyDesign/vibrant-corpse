@@ -1,10 +1,14 @@
 import React from "react";
 import Favourite from "./Favourite";
 import "../styles/components/workshop.scss";
+import cx from "classnames";
 
-function Workshop({ favourites }) {
+function Workshop({ favourites, workshop }) {
+  const workshopclass = cx("workshop", {
+    reveal: workshop === true
+  });
   return (
-    <section className="workshop">
+    <section className={workshopclass}>
       <h2>Workshop</h2>
       <p>Select a corpse to start the timer and begin writing. Do not pause.</p>
 
