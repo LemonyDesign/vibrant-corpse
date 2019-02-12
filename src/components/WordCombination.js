@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/components/wordCombination.scss";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { FaQuestionCircle, FaMinusSquare, FaPlusSquare } from "react-icons/fa";
 
 function WordCombination({
   corpseitem,
@@ -28,15 +29,18 @@ function WordCombination({
     <li className="corpses__items" corpseitem={corpseitem}>
       <a className={linksclasses} href="#" onClick={handleClick}>
         {isFavourite ? (
-          <i className="fas fa-minus-circle" />
+          // <i className="fas fa-minus-circle" />
+          <FaMinusSquare />
         ) : (
-          <i className="fas fa-plus-circle" />
+          // <i className="fas fa-plus-circle" />
+          <FaPlusSquare />
         )}{" "}
         {corpseitem}
       </a>
 
       <a className="tooltip" href="#">
-        <i className="fa fa-question-circle" />
+        {/* <i className="fa fa-question-circle" /> */}
+        <FaQuestionCircle />
         <span className="tooltip-content">
           <span className="tooltip-text">
             <span className="tooltip-inner">
