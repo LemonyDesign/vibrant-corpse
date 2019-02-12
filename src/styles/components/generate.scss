@@ -1,5 +1,6 @@
 @import "../base/_variables.scss";
 .wordlists {
+  text-align: center;
   border: 1px dotted $text-color;
   padding: $main-padding;
   margin-bottom: $main-padding * 1.5;
@@ -12,10 +13,10 @@
 
 .generate {
   margin-bottom: $main-padding * 2;
-
   &.completed {
     display: none;
   }
+
   &__modifier.menu--settings,
   &__base.menu--settings {
     margin-bottom: $main-padding * 1.5;
@@ -26,22 +27,20 @@
 @media (min-width: 768px) {
   .wordlists {
     width: 80%;
-    text-align: center;
-    &__intro {
-      text-align: left;
-    }
 
     .generate {
-      display: flex;
-      flex-flow: row wrap;
-      text-align: center;
+      &.completed {
+        display: none;
+      }
+      &__generator {
+        display: flex;
+        flex-flow: row wrap;
+        // text-align: center;
+      }
       &__modifier.menu--settings,
       &__base.menu--settings {
         width: 50%;
         margin-bottom: 0;
-      }
-      &.completed {
-        display: none;
       }
     }
   }

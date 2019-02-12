@@ -40,6 +40,11 @@ function GeneratedList({
   return (
     <section className={corpsesclasses}>
       <h2>Choose for Workshop</h2>
+      <p>
+        <strong>Add</strong> intriguing &lsquo;vibrant corpses&rsquo; to a
+        workshop list. No inspirations? Regenerate{" "}
+        <i className="fas fa-redo fa-xs" />
+      </p>
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
           ? modifiers.map((item, i) => {
@@ -80,9 +85,7 @@ function GeneratedList({
         <i className="fas fa-redo" />
       </button>
 
-      <p className={errorclass}>
-        Please choose at least one vibrant corpse, or regenerate words.
-      </p>
+      <p className={errorclass}>Please choose at least one vibrant corpse.</p>
     </section>
   );
 }

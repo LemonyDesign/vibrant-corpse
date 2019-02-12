@@ -9,16 +9,37 @@
     display: inline-block;
     text-decoration: none;
     font-size: 1rem;
-    padding: $main-padding * 0.5;
+    padding: $main-padding * 0.5 $main-padding * 0.5 $main-padding * 0.5 0;
     text-align: center;
+    text-decoration: none;
     &:hover,
     &.active {
-      text-decoration: none;
       color: $primary-color;
-      i {
-        color: $text-color;
-      }
     }
+    &.active i {
+      color: lighten($primary-color, 20%);
+      border-bottom-color: $background-color;
+    }
+  }
+}
+.tooltip {
+  display: block;
+  text-decoration: none;
+  color: $text-color;
+  i {
+    display: none;
+  }
+  margin: $main-padding 0;
+}
+.tooltip-inner {
+  display: block;
+  color: light($text-color, 10%);
+  font-style: italic;
+}
+.wd {
+  font-style: normal;
+  &::after {
+    content: ":";
   }
 }
 
@@ -28,6 +49,9 @@
     position: relative;
     z-index: 999;
     color: lighten($text-color, 40%);
+    i {
+      display: inline-block;
+    }
   }
 
   /* Gap filler */
@@ -118,7 +142,7 @@
     position: absolute;
     pointer-events: none;
     border-color: transparent;
-    border-top-color: #fffaf0;
+    border-top-color: $primary-color;
     border-width: 10px;
     margin-left: -10px;
   }

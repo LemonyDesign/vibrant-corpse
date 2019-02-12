@@ -39,52 +39,45 @@ function Generate({
 
   return (
     <section className={wordlistclass}>
-      <h2 className="wordlists__title">The Generator</h2>
+      <section className={generateclass}>
+        <h2 className="wordlists__title">The Generator</h2>
 
-      <ol className="wordlists__intro">
-        <li>
+        <p className="wordlists__intro">
           <strong>Generate</strong> words to create a list of &lsquo;vibrant
           corpses&rsquo; by selecting below.
-        </li>
-        <li>
-          <strong>Choose</strong> vibrant corpses for workshopping.
-        </li>
-        <li>
-          <strong>Start a workshop.</strong>{" "}
-        </li>
-      </ol>
-
-      <section className={generateclass}>
-        <ul className="generate__modifier menu--settings">
-          <li>
-            <p>Adjective / Adverb</p>
-            <select className="generator select1" onChange={handleChange1}>
-              <option default value="default">
-                Select
-              </option>
-              <option value="adjective">Adjective</option>
-              <option value="adverb">Adverb</option>
-            </select>
-          </li>
-          {modifiers.map(modifier => {
-            return <Word key={modifier.word} modifier={modifier.word} />;
-          })}
-        </ul>
-        <ul className="generate__base menu--settings">
-          <li>
-            <p>Noun / Verb</p>
-            <select className="generator select2" onChange={handleChange2}>
-              <option default value="default">
-                Select
-              </option>
-              <option value="noun">Noun</option>
-              <option value="verb">Verb</option>
-            </select>
-          </li>
-          {basewords.map(base => {
-            return <Word key={base.word} baseword={base.word} />;
-          })}
-        </ul>
+        </p>
+        <div className="generate__generator">
+          <ul className="generate__modifier menu--settings">
+            <li>
+              <p>Adjective / Adverb</p>
+              <select className="generator select1" onChange={handleChange1}>
+                <option default value="default">
+                  Select
+                </option>
+                <option value="adjective">Adjective</option>
+                <option value="adverb">Adverb</option>
+              </select>
+            </li>
+            {modifiers.map(modifier => {
+              return <Word key={modifier.word} modifier={modifier.word} />;
+            })}
+          </ul>
+          <ul className="generate__base menu--settings">
+            <li>
+              <p>Noun / Verb</p>
+              <select className="generator select2" onChange={handleChange2}>
+                <option default value="default">
+                  Select
+                </option>
+                <option value="noun">Noun</option>
+                <option value="verb">Verb</option>
+              </select>
+            </li>
+            {basewords.map(base => {
+              return <Word key={base.word} baseword={base.word} />;
+            })}
+          </ul>
+        </div>
       </section>
 
       <GeneratedList

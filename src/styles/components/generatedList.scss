@@ -2,8 +2,6 @@
 
 .corpses {
   display: none;
-  // opacity: 0;
-  // transition: opacity 2.5s;
   text-align: center;
   padding: $main-padding 0;
   &__workshop,
@@ -13,7 +11,6 @@
     width: auto;
     border: 1px dotted $text-color;
     padding: $main-padding * 0.5;
-    // margin: 0 0 $main-padding * 0.5 0;
     text-decoration: none;
     font-size: 1rem;
     cursor: pointer;
