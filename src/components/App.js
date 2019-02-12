@@ -16,7 +16,8 @@ class App extends React.Component {
       baseWords: [],
       favourites: [],
       workshop: false,
-      clicked: false
+      clicked: false,
+      optionsState: ""
     };
     this.receiveType = this.receiveType.bind(this);
     this.addFavourites = this.addFavourites.bind(this);
@@ -52,6 +53,10 @@ class App extends React.Component {
   }
 
   receiveType(partofspeech, type) {
+    this.setState({
+      optionsState: partofspeech
+    });
+
     this.fetchWords(partofspeech, type);
   }
 
@@ -89,7 +94,8 @@ class App extends React.Component {
   clearFetch() {
     this.setState({
       modifierWords: [],
-      baseWords: []
+      baseWords: [],
+      optionsState: ""
     });
   }
 
@@ -127,6 +133,7 @@ class App extends React.Component {
             favourites={this.state.favourites}
             workshop={this.state.workshop}
             clicked={this.state.clicked}
+            optionsState={this.state.optionsState}
           />
           {this.state.workshop && (
             <Workshop
