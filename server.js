@@ -19,34 +19,32 @@ function createWordObj(content) {
   );
 }
 
-app.get("/api", (req, res) => {
-  res.send("Testing");
-});
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/dist/index.html"));
-});
+
 
 app.post("/api/words", function(req, res) {
   const url = `https://wordsapiv1.p.mashape.com/words/?partOfSpeech=${
     req.body.partofspeech
   }&random=true`;
-
+  
   fetch(url, {
     headers: {
       "X-Mashape-Key": `${wordsApi}`,
       "X-Mashape-Host": "wordsapiv1.p.mashape.com"
     }
   })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(content => {
-      return res.json(createWordObj(content));
-    })
-
-    .catch(console.error);
+  .then(function(response) {
+    return response.json();
+  })
+  .then(content => {
+    return res.json(createWordObj(content));
+  })
+  
+  .catch(console.error);
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/dist/index.html"));
+});
 const port = process.env.PORT || 8080;
 
 app.listen(port, function() {
