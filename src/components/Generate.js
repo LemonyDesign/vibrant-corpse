@@ -16,7 +16,8 @@ function Generate({
   workshop,
   isClicked,
   clicked,
-  clearFetch
+  clearFetch,
+  optionsState
 }) {
   function handleChange1(event) {
     receiveType(event.target.value, "modifier");
@@ -50,10 +51,12 @@ function Generate({
           <ul className="generate__modifier menu--settings">
             <li>
               <p>Adjective / Adverb</p>
-              <select className="generator select1" onChange={handleChange1}>
-                <option default value="default">
-                  Select
-                </option>
+              <select
+                value={optionsState}
+                className="generator select1"
+                onChange={handleChange1}
+              >
+                <option value="default">Select</option>
                 <option value="adjective">Adjective</option>
                 <option value="adverb">Adverb</option>
               </select>
@@ -65,7 +68,11 @@ function Generate({
           <ul className="generate__base menu--settings">
             <li>
               <p>Noun / Verb</p>
-              <select className="generator select2" onChange={handleChange2}>
+              <select
+                value={optionsState}
+                className="generator select2"
+                onChange={handleChange2}
+              >
                 <option default value="default">
                   Select
                 </option>
