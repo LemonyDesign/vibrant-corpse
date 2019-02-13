@@ -2,7 +2,8 @@ import React from "react";
 import "../styles/components/wordCombination.scss";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { FaQuestionCircle, FaMinusSquare, FaPlusSquare } from "react-icons/fa";
+import { FaQuestionCircle, FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import { AddCircle, RemoveCircle, Info } from "@material-ui/icons";
 
 function WordCombination({
   corpseitem,
@@ -14,7 +15,7 @@ function WordCombination({
   removeFromFavourites,
   addFavourites
 }) {
-  function handleClick(event) {
+  function handleClick() {
     if (isFavourite) {
       removeFromFavourites(corpseitem);
     } else {
@@ -30,17 +31,20 @@ function WordCombination({
       <a className={linksclasses} href="#" onClick={handleClick}>
         {isFavourite ? (
           // <i className="fas fa-minus-circle" />
-          <FaMinusSquare />
+          // <FaMinusCircle />
+          <RemoveCircle />
         ) : (
           // <i className="fas fa-plus-circle" />
-          <FaPlusSquare />
+          // <FaPlusCircle />
+          <AddCircle />
         )}{" "}
         {corpseitem}
       </a>
 
       <a className="tooltip" href="#">
         {/* <i className="fa fa-question-circle" /> */}
-        <FaQuestionCircle />
+        {/* <FaQuestionCircle /> */}
+        <Info />
         <span className="tooltip-content">
           <span className="tooltip-text">
             <span className="tooltip-inner">

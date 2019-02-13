@@ -19,27 +19,20 @@ function createWordObj(content) {
   );
 }
 
-
-
 app.post("/api/words", function(req, res) {
   const url = `https://wordsapiv1.p.mashape.com/words/?partOfSpeech=${
     req.body.partofspeech
   }&random=true`;
-  
+
   fetch(url, {
     headers: {
       "X-Mashape-Key": `${wordsApi}`,
       "X-Mashape-Host": "wordsapiv1.p.mashape.com"
     }
   })
-  .then(function(response) {
-    return response.json();
-  })
-  .then(content => {
-    return res.json(createWordObj(content));
-  })
-  
-  .catch(console.error);
+    .then(response => response.json())
+    .then(content => res.json(createWordObj(content)))
+    .catch(console.error);
 });
 
 app.get("*", (req, res) => {

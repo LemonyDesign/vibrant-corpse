@@ -1,6 +1,8 @@
 import React from "react";
 import WordCombination from "./WordCombination";
 import cx from "classnames";
+import { FaRedo, FaArrowAltCircleRight } from "react-icons/fa";
+import { Refresh, ChevronRight } from "@material-ui/icons";
 
 import "../styles/components/generatedList.scss";
 
@@ -27,13 +29,13 @@ function GeneratedList({
     show: clicked === true && favourites.length === 0
   });
 
-  function handleClick(event) {
+  function handleClick() {
     isClicked();
     if (favourites.length !== 0) {
       displayWorkshop();
     }
   }
-  function handleRegenerate(event) {
+  function handleRegenerate() {
     clearFetch();
   }
 
@@ -43,7 +45,8 @@ function GeneratedList({
       <p>
         <strong>Add</strong> intriguing &lsquo;vibrant corpses&rsquo; to a
         workshop list. No inspirations? Regenerate{" "}
-        <i className="fas fa-redo fa-xs" />
+        {/* <i className="fas fa-redo fa-xs" /> */}
+        <Refresh />
       </p>
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
@@ -77,12 +80,15 @@ function GeneratedList({
       </ul>
 
       <button className="corpses__workshop" onClick={handleClick}>
-        Start Workshopping <i className="fas fa-arrow-alt-circle-right" />
+        Start Workshopping <ChevronRight />
+        {/* <FaArrowAltCircleRight /> */}
+        {/* <i className="fas fa-arrow-alt-circle-right" /> */}
       </button>
 
       <button className="corpses__regenerate" onClick={handleRegenerate}>
         <span className="show--screenreaders">Regenerate</span>
-        <i className="fas fa-redo" />
+        {/* <i className="fas fa-redo" /> */}
+        <Refresh />
       </button>
 
       <p className={errorclass}>Please choose at least one vibrant corpse.</p>

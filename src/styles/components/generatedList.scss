@@ -7,7 +7,9 @@
   &__workshop,
   &__regenerate {
     margin: $main-padding;
-    display: inline-block;
+    display: inline-flex;
+    vertical-align: middle;
+    // display: inline-block;
     width: auto;
     border: 1px dotted $text-color;
     padding: $main-padding * 0.5;

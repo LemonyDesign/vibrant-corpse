@@ -5,8 +5,9 @@
     text-align: left;
   }
   &__links {
+    display: inline-flex;
+    vertical-align: middle;
     color: $text-color;
-    display: inline-block;
     text-decoration: none;
     font-size: 1rem;
     padding: $main-padding * 0.5 $main-padding * 0.5 $main-padding * 0.5 0;
@@ -26,7 +27,7 @@
   display: block;
   text-decoration: none;
   color: $text-color;
-  i {
+  svg {
     display: none;
   }
   margin: $main-padding 0;
@@ -45,11 +46,12 @@
 
 @media (min-width: 960px) {
   .tooltip {
-    display: inline;
+    display: inline-flex;
+    vertical-align: middle;
     position: relative;
     z-index: 999;
     color: lighten($text-color, 40%);
-    i {
+    svg {
       display: inline-block;
     }
   }
