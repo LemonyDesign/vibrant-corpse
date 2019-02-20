@@ -7,13 +7,13 @@ import "../styles/components/generatedList.scss";
 function GeneratedList({
   modifiers,
   basewords,
+  clearFetch,
+  startWorkshop,
+  started,
+  displayWorkshop,
   favourites,
   addFavourites,
-  removeFromFavourites,
-  displayWorkshop,
-  isClicked,
-  clicked,
-  clearFetch
+  removeFromFavourites
 }) {
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
@@ -24,11 +24,11 @@ function GeneratedList({
   });
 
   const errorclass = cx("corpses__error", {
-    show: clicked === true && favourites.length === 0
+    show: started === true && favourites.length === 0
   });
 
   function handleClick() {
-    isClicked();
+    startWorkshop();
     if (favourites.length !== 0) {
       displayWorkshop();
     }

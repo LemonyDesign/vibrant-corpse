@@ -9,21 +9,26 @@ function Generate({
   receiveType,
   modifiers,
   basewords,
-  favourites,
-  addFavourites,
-  removeFromFavourites,
+  receiveModifierOption,
+  receiveBaseOption,
+  modifierOptions,
+  baseOptions,
+  clearFetch,
+  startWorkshop,
+  started,
   displayWorkshop,
   workshop,
-  isClicked,
-  clicked,
-  clearFetch,
-  optionsState
+  favourites,
+  addFavourites,
+  removeFromFavourites
 }) {
   function handleChange1(event) {
     receiveType(event.target.value, "modifier");
+    receiveModifierOption(event.target.value);
   }
   function handleChange2(event) {
     receiveType(event.target.value, "base");
+    receiveBaseOption(event.target.value);
   }
 
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
@@ -52,7 +57,7 @@ function Generate({
             <li>
               <p>Adjective / Adverb</p>
               <select
-                value={optionsState}
+                value={modifierOptions}
                 className="generator select1"
                 onChange={handleChange1}
               >
@@ -61,6 +66,7 @@ function Generate({
                 <option value="adverb">Adverb</option>
               </select>
             </li>
+
             {modifiers.map(modifier => {
               return <Word key={modifier.word} modifier={modifier.word} />;
             })}
@@ -69,7 +75,7 @@ function Generate({
             <li>
               <p>Noun / Verb</p>
               <select
-                value={optionsState}
+                value={baseOptions}
                 className="generator select2"
                 onChange={handleChange2}
               >
@@ -90,13 +96,13 @@ function Generate({
       <GeneratedList
         modifiers={modifiers}
         basewords={basewords}
+        clearFetch={clearFetch}
+        startWorkshop={startWorkshop}
+        started={started}
+        displayWorkshop={displayWorkshop}
         favourites={favourites}
         addFavourites={addFavourites}
         removeFromFavourites={removeFromFavourites}
-        displayWorkshop={displayWorkshop}
-        isClicked={isClicked}
-        clicked={clicked}
-        clearFetch={clearFetch}
       />
     </section>
   );

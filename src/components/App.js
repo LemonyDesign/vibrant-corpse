@@ -16,18 +16,21 @@ class App extends React.Component {
       baseWords: [],
       favourites: [],
       workshop: false,
-      clicked: false,
-      optionsState: ""
+      started: false,
+      optionsState: {
+        modifierOptions: "",
+        baseOptions: ""
+      }
     };
     this.receiveType = this.receiveType.bind(this);
+    this.receiveModifierOption = this.receiveModifierOption.bind(this);
+    this.receiveBaseOption = this.receiveBaseOption.bind(this);
     this.addFavourites = this.addFavourites.bind(this);
     this.removeFromFavourites = this.removeFromFavourites.bind(this);
+    this.startWorkshop = this.startWorkshop.bind(this);
     this.displayWorkshop = this.displayWorkshop.bind(this);
-    this.isClicked = this.isClicked.bind(this);
     this.clearFetch = this.clearFetch.bind(this);
   }
-
-  // want to add this into the fetch content.results[0].definition
 
   fetchWords(partofspeech, wordtype) {
     let tempArr = [];
@@ -53,11 +56,17 @@ class App extends React.Component {
   }
 
   receiveType(partofspeech, type) {
-    this.setState({
-      optionsState: partofspeech
-    });
-
     this.fetchWords(partofspeech, type);
+  }
+  receiveModifierOption(modifieroption) {
+    let optionsState = Object.assign({}, this.state.optionsState);
+    optionsState.modifierOptions = modifieroption;
+    this.setState({ optionsState });
+  }
+  receiveBaseOption(baseoption) {
+    let optionsState = Object.assign({}, this.state.optionsState);
+    optionsState.baseOptions = baseoption;
+    this.setState({ optionsState });
   }
 
   addFavourites(corpseitem) {
@@ -79,15 +88,15 @@ class App extends React.Component {
     });
   }
 
-  displayWorkshop() {
+  startWorkshop() {
     this.setState({
-      workshop: !this.state.workshop
+      started: !this.state.started
     });
   }
 
-  isClicked() {
+  displayWorkshop() {
     this.setState({
-      clicked: !this.state.clicked
+      workshop: !this.state.workshop
     });
   }
 
@@ -95,7 +104,10 @@ class App extends React.Component {
     this.setState({
       modifierWords: [],
       baseWords: [],
-      optionsState: ""
+      optionsState: {
+        modifierOptions: "",
+        baseOptions: ""
+      }
     });
   }
 
@@ -123,17 +135,20 @@ class App extends React.Component {
         <main className="main">
           <Generate
             receiveType={this.receiveType}
-            displayWorkshop={this.displayWorkshop}
-            isClicked={this.isClicked}
-            clearFetch={this.clearFetch}
             modifiers={this.state.modifierWords}
             basewords={this.state.baseWords}
+            receiveModifierOption={this.receiveModifierOption}
+            receiveBaseOption={this.receiveBaseOption}
+            modifierOptions={this.state.optionsState.modifierOptions}
+            baseOptions={this.state.optionsState.baseOptions}
+            clearFetch={this.clearFetch}
+            startWorkshop={this.startWorkshop}
+            started={this.state.started}
+            displayWorkshop={this.displayWorkshop}
+            workshop={this.state.workshop}
             addFavourites={this.addFavourites}
             removeFromFavourites={this.removeFromFavourites}
             favourites={this.state.favourites}
-            workshop={this.state.workshop}
-            clicked={this.state.clicked}
-            optionsState={this.state.optionsState}
           />
           {this.state.workshop && (
             <Workshop
