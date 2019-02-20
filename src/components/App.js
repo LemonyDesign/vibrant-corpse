@@ -22,7 +22,6 @@ class App extends React.Component {
         baseOptions: ""
       }
     };
-    this.receiveType = this.receiveType.bind(this);
     this.receiveModifierOption = this.receiveModifierOption.bind(this);
     this.receiveBaseOption = this.receiveBaseOption.bind(this);
     this.addFavourites = this.addFavourites.bind(this);
@@ -45,9 +44,9 @@ class App extends React.Component {
         .then(response => response.json())
         .then(content => {
           tempArr = tempArr.concat([content]);
-          if (wordtype === "modifier" && partofspeech !== "default") {
+          if (wordtype === "modifier") {
             this.setState({ modifierWords: tempArr });
-          } else if (wordtype === "base" && partofspeech !== "default") {
+          } else if (wordtype === "base") {
             this.setState({ baseWords: tempArr });
           }
         })
@@ -55,18 +54,27 @@ class App extends React.Component {
     }
   }
 
-  receiveType(partofspeech, type) {
-    this.fetchWords(partofspeech, type);
-  }
-  receiveModifierOption(modifieroption) {
+  receiveModifierOption(modifieroption, type) {
     let optionsState = Object.assign({}, this.state.optionsState);
     optionsState.modifierOptions = modifieroption;
     this.setState({ optionsState });
+
+    if (optionsState.modifierOptions !== "default") {
+      this.fetchWords(modifieroption, type);
+    } else {
+      this.clearFetch();
+    }
   }
-  receiveBaseOption(baseoption) {
+  receiveBaseOption(baseoption, type) {
     let optionsState = Object.assign({}, this.state.optionsState);
     optionsState.baseOptions = baseoption;
     this.setState({ optionsState });
+
+    if (optionsState.baseOptions !== "default") {
+      this.fetchWords(baseoption, type);
+    } else {
+      this.clearFetch();
+    }
   }
 
   addFavourites(corpseitem) {
@@ -134,7 +142,6 @@ class App extends React.Component {
 
         <main className="main">
           <Generate
-            receiveType={this.receiveType}
             modifiers={this.state.modifierWords}
             basewords={this.state.baseWords}
             receiveModifierOption={this.receiveModifierOption}

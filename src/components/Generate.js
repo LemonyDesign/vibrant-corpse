@@ -6,7 +6,6 @@ import cx from "classnames";
 import "../styles/components/generate.scss";
 
 function Generate({
-  receiveType,
   modifiers,
   basewords,
   receiveModifierOption,
@@ -22,13 +21,13 @@ function Generate({
   addFavourites,
   removeFromFavourites
 }) {
-  function handleChange1(event) {
-    receiveType(event.target.value, "modifier");
-    receiveModifierOption(event.target.value);
-  }
-  function handleChange2(event) {
-    receiveType(event.target.value, "base");
-    receiveBaseOption(event.target.value);
+  function handleChange(event) {
+    if (event.target.name === "modifier") {
+      receiveModifierOption(event.target.value, event.target.name);
+    }
+    if (event.target.name === "base") {
+      receiveBaseOption(event.target.value, event.target.name);
+    }
   }
 
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
@@ -59,7 +58,8 @@ function Generate({
               <select
                 value={modifierOptions}
                 className="generator select1"
-                onChange={handleChange1}
+                onChange={handleChange}
+                name="modifier"
               >
                 <option value="default">Select</option>
                 <option value="adjective">Adjective</option>
@@ -77,7 +77,8 @@ function Generate({
               <select
                 value={baseOptions}
                 className="generator select2"
-                onChange={handleChange2}
+                onChange={handleChange}
+                name="base"
               >
                 <option default value="default">
                   Select
