@@ -1,35 +1,17 @@
 import React from "react";
-import GeneratedList from "./GeneratedList";
 import Word from "./Word";
+import GeneratedListContainer from "../containers/GeneratedListContainer";
 import cx from "classnames";
-
 import "../styles/components/generate.scss";
 
 function Generate({
   modifiers,
   basewords,
-  receiveModifierOption,
-  receiveBaseOption,
+  handleChange,
   modifierOptions,
   baseOptions,
-  clearFetch,
-  startWorkshop,
-  started,
-  displayWorkshop,
-  workshop,
-  favourites,
-  addFavourites,
-  removeFromFavourites
+  workshop
 }) {
-  function handleChange(event) {
-    if (event.target.name === "modifier") {
-      receiveModifierOption(event.target.value, event.target.name);
-    }
-    if (event.target.name === "base") {
-      receiveBaseOption(event.target.value, event.target.name);
-    }
-  }
-
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
 
@@ -58,7 +40,7 @@ function Generate({
               <select
                 value={modifierOptions}
                 className="generator select1"
-                onChange={handleChange}
+                onChange={event => handleChange(event)}
                 name="modifier"
               >
                 <option value="default">Select</option>
@@ -77,7 +59,7 @@ function Generate({
               <select
                 value={baseOptions}
                 className="generator select2"
-                onChange={handleChange}
+                onChange={event => handleChange(event)}
                 name="base"
               >
                 <option default value="default">
@@ -93,18 +75,7 @@ function Generate({
           </ul>
         </div>
       </section>
-
-      <GeneratedList
-        modifiers={modifiers}
-        basewords={basewords}
-        clearFetch={clearFetch}
-        startWorkshop={startWorkshop}
-        started={started}
-        displayWorkshop={displayWorkshop}
-        favourites={favourites}
-        addFavourites={addFavourites}
-        removeFromFavourites={removeFromFavourites}
-      />
+      <GeneratedListContainer />
     </section>
   );
 }

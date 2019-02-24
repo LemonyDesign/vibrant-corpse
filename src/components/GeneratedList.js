@@ -1,19 +1,17 @@
 import React from "react";
-import WordCombination from "./WordCombination";
+import WordCombinationContainer from "../containers/WordCombinationContainer";
 import cx from "classnames";
 import Refresh from "@material-ui/icons/Refresh";
 import "../styles/components/generatedList.scss";
 
 function GeneratedList({
+  startWorkshop,
+  displayWorkshop,
+  handleRegenerate,
   modifiers,
   basewords,
-  clearFetch,
-  startWorkshop,
   started,
-  displayWorkshop,
-  favourites,
-  addFavourites,
-  removeFromFavourites
+  favourites
 }) {
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
@@ -26,16 +24,6 @@ function GeneratedList({
   const errorclass = cx("corpses__error", {
     show: started === true && favourites.length === 0
   });
-
-  function handleClick() {
-    startWorkshop();
-    if (favourites.length !== 0) {
-      displayWorkshop();
-    }
-  }
-  function handleRegenerate() {
-    clearFetch();
-  }
 
   return (
     <section className={corpsesclasses}>
@@ -51,14 +39,14 @@ function GeneratedList({
               const baseword = basewords[i].word;
               const modifierdef = item.definition;
               const baseworddef = basewords[i].definition;
-
               const corpseitem = `${item.word}  ${basewords[i].word}`;
+
               const isFavourite = favourites.find(currentFavourite => {
                 return currentFavourite === corpseitem;
               });
 
               return (
-                <WordCombination
+                <WordCombinationContainer
                   modifier={modifier}
                   baseword={baseword}
                   modifierdef={modifierdef}
@@ -66,20 +54,27 @@ function GeneratedList({
                   corpseitem={corpseitem}
                   key={corpseitem}
                   isFavourite={isFavourite}
-                  favourites={favourites}
-                  addFavourites={addFavourites}
-                  removeFromFavourites={removeFromFavourites}
                 />
               );
             })
           : null}
       </ul>
 
-      <button className="corpses__workshop" onClick={handleClick}>
+      <button
+        className="corpses__workshop"
+        onClick={event => {
+          event.preventDefault();
+          startWorkshop();
+          favourites.length !== 0 ? displayWorkshop() : null;
+        }}
+      >
         Start Workshopping
       </button>
 
-      <button className="corpses__regenerate" onClick={handleRegenerate}>
+      <button
+        className="corpses__regenerate"
+        onClick={event => handleRegenerate(event)}
+      >
         <span className="show--screenreaders">Regenerate</span>
         <Refresh />
       </button>

@@ -7,6 +7,7 @@ function Workshop({ favourites, workshop }) {
   const workshopclass = cx("workshop", {
     reveal: workshop === true
   });
+
   return (
     <section className={workshopclass}>
       <h2>Workshop</h2>

@@ -13,7 +13,8 @@ This game seeks to mimic the original by randomly generating lists of words, sel
 ### Features
 
 - "random" endpoint on API is used to fetch 3 cycles of words, which the user may select by type - adjective/adverb, noun/verb
-- local storage is used to select generatedword combinations for workshopping (may be added or deleted from selected stock)
+- generated word combinations may then be selected for workshopping (may be added or deleted from selected stock)
+- words provide associated definitions (appearing as tooltips for desktop)
 - timer set on adding word combo to the workshop textarea
 - css classes (with animation) indicate when word combo has been added, and when the timer is reaching end (_set to 10s for testing!_)
 
@@ -30,11 +31,13 @@ WORDS_API=
 
 ```
 
-Run `npm start` to launch the app and navigate to localhost:8080
+Run `npm run dev` to launch the app and navigate to localhost:3000
+This will start the node server at localhost:8080 for the dev environment.
 
 ### Tech stack
 
 - React
+- Redux
 - SCSS
 - Express
 - Node.js
@@ -42,8 +45,7 @@ Run `npm start` to launch the app and navigate to localhost:8080
 
 **The app is currently under development:**
 
-- Swap in views for Workshop once word-combos are added for workshopping
-- Add descriptions as tooltips to generated word lists - this requires rebuild of word list arrays as objects with keys word: and definition, so as to pull in definition with Fetch.
+- Use react-router with pose to create suitable endpoints, and smooth transitions
 - Textarea functionality set to fade… whenever user pauses
 - Currently desktop-oriented design; address UX for mobile usage - server a different view for writing
 

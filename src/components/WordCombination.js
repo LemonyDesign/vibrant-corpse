@@ -5,29 +5,29 @@ import cx from "classnames";
 import { AddCircle, RemoveCircle, Info } from "@material-ui/icons";
 
 function WordCombination({
+  selectItem,
+  deselectItem,
   corpseitem,
+  isFavourite,
   modifier,
   baseword,
   modifierdef,
-  baseworddef,
-  isFavourite,
-  removeFromFavourites,
-  addFavourites
+  baseworddef
 }) {
-  function handleClick() {
-    if (isFavourite) {
-      removeFromFavourites(corpseitem);
-    } else {
-      addFavourites(corpseitem);
-    }
-  }
   const linksclasses = cx("corpses__links", {
     active: isFavourite
   });
 
   return (
-    <li className="corpses__items" corpseitem={corpseitem}>
-      <a className={linksclasses} href="#" onClick={handleClick}>
+    <li className="corpses__items">
+      <a
+        className={linksclasses}
+        href="#"
+        onClick={event => {
+          event.preventDefault();
+          isFavourite ? deselectItem(corpseitem) : selectItem(corpseitem);
+        }}
+      >
         {isFavourite ? <RemoveCircle /> : <AddCircle />} {corpseitem}
       </a>
 
