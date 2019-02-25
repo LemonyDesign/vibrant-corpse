@@ -14,10 +14,8 @@ export function fetchWords(partofspeech, wordtype) {
           tempArr = tempArr.concat([content]);
           if (wordtype === "modifier") {
             dispatch(setModifierWords(tempArr));
-            // this.setState({ modifierWords: tempArr });
           } else if (wordtype === "base") {
             dispatch(setBaseWords(tempArr));
-            // this.setState({ baseWords: tempArr });
           }
         })
         .catch(console.error);

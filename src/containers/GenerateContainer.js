@@ -1,6 +1,14 @@
 import { connect } from "react-redux";
 import Generate from "../components/Generate.js";
-import { fetchWords, setModifierOptions, setBaseOptions } from "../actions";
+import {
+  fetchWords,
+  setModifierOptions,
+  setBaseOptions,
+  clearModifierOptions,
+  clearModifierWords,
+  clearBaseOptions,
+  clearBaseWords
+} from "../actions";
 
 export const mapStateToProps = state => {
   return {
@@ -14,14 +22,25 @@ export const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleChange: event => {
+    handleModifierOptions: () => {
+      dispatch(setModifierOptions(event.target.value));
+    },
+    fetchModifier: () => {
       dispatch(fetchWords(event.target.value, event.target.name));
-      if (event.target.name === "modifier") {
-        dispatch(setModifierOptions(event.target.value));
-      }
-      if (event.target.name === "base") {
-        dispatch(setBaseOptions(event.target.value));
-      }
+    },
+    handleBaseOptions: () => {
+      dispatch(setBaseOptions(event.target.value));
+    },
+    fetchBase: () => {
+      dispatch(fetchWords(event.target.value, event.target.name));
+    },
+    clearModifiers: () => {
+      dispatch(clearModifierWords());
+      dispatch(clearModifierOptions());
+    },
+    clearBases: () => {
+      dispatch(clearBaseWords());
+      dispatch(clearBaseOptions());
     }
   };
 };

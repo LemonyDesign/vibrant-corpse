@@ -7,7 +7,12 @@ import "../styles/components/generate.scss";
 function Generate({
   modifiers,
   basewords,
-  handleChange,
+  handleModifierOptions,
+  fetchModifier,
+  handleBaseOptions,
+  fetchBase,
+  clearModifiers,
+  clearBases,
   modifierOptions,
   baseOptions,
   workshop
@@ -40,7 +45,12 @@ function Generate({
               <select
                 value={modifierOptions}
                 className="generator select1"
-                onChange={event => handleChange(event)}
+                onChange={() => {
+                  handleModifierOptions();
+                  modifierOptions !== "default"
+                    ? fetchModifier()
+                    : clearModifiers();
+                }}
                 name="modifier"
               >
                 <option value="default">Select</option>
@@ -59,7 +69,10 @@ function Generate({
               <select
                 value={baseOptions}
                 className="generator select2"
-                onChange={event => handleChange(event)}
+                onChange={() => {
+                  handleBaseOptions();
+                  baseOptions !== "default" ? fetchBase() : clearBases();
+                }}
                 name="base"
               >
                 <option default value="default">
