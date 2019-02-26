@@ -25,18 +25,18 @@ const mapDispatchToProps = dispatch => {
     handleModifierOptions: () => {
       dispatch(setModifierOptions(event.target.value));
     },
-    fetchModifier: () => {
-      dispatch(fetchWords(event.target.value, event.target.name));
-    },
-    handleBaseOptions: () => {
-      dispatch(setBaseOptions(event.target.value));
-    },
-    fetchBase: () => {
+    fetchModifierWords: () => {
       dispatch(fetchWords(event.target.value, event.target.name));
     },
     clearModifiers: () => {
       dispatch(clearModifierWords());
       dispatch(clearModifierOptions());
+    },
+    handleBaseOptions: () => {
+      dispatch(setBaseOptions(event.target.value));
+    },
+    fetchBaseWords: () => {
+      dispatch(fetchWords(event.target.value, event.target.name));
     },
     clearBases: () => {
       dispatch(clearBaseWords());

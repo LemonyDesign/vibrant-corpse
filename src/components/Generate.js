@@ -8,9 +8,9 @@ function Generate({
   modifiers,
   basewords,
   handleModifierOptions,
-  fetchModifier,
+  fetchModifierWords,
   handleBaseOptions,
-  fetchBase,
+  fetchBaseWords,
   clearModifiers,
   clearBases,
   modifierOptions,
@@ -48,7 +48,7 @@ function Generate({
                 onChange={() => {
                   handleModifierOptions();
                   modifierOptions !== "default"
-                    ? fetchModifier()
+                    ? fetchModifierWords()
                     : clearModifiers();
                 }}
                 name="modifier"
@@ -71,7 +71,7 @@ function Generate({
                 className="generator select2"
                 onChange={() => {
                   handleBaseOptions();
-                  baseOptions !== "default" ? fetchBase() : clearBases();
+                  baseOptions !== "default" ? fetchBaseWords() : clearBases();
                 }}
                 name="base"
               >
