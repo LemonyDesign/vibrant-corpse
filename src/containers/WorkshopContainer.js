@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Workshop from "../components/workshop";
+import Workshop from "../components/Workshop";
 
 const mapStateToProps = state => {
   return {
