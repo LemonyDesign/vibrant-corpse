@@ -1,14 +1,14 @@
 import React from "react";
-import "../styles/components/app.scss";
+import "../styles/components/word.scss";
 import PropTypes from "prop-types";
 
 function Word({ modifier, baseword }) {
   return (
     <li>
-      <span className="noun__items" modifiers={modifier}>
+      <span className="modifier__items" modifiers={modifier}>
         {modifier}
       </span>
-      <span className="adjective__items" basewords={baseword}>
+      <span className="baseword__items" basewords={baseword}>
         {baseword}
       </span>
     </li>

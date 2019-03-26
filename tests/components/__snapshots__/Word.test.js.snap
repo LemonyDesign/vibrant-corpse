@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Word should render correctly 1`] = `
+<li>
+  <span
+    className="modifier__items"
+    modifiers="Crazy"
+  >
+    Crazy
+  </span>
+  <span
+    className="baseword__items"
+  />
+</li>
+`;
