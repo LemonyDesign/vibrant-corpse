@@ -1,11 +1,12 @@
-import React from "react";
-import Favourite from "./Favourite";
-import "../styles/components/workshop.scss";
-import cx from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import Favourite from './Favourite';
+import '../styles/components/workshop.scss';
 
 function Workshop({ favourites, workshop }) {
-  const workshopclass = cx("workshop", {
-    reveal: workshop === true
+  const workshopclass = cx('workshop', {
+    reveal: workshop === true,
   });
 
   return (
@@ -22,5 +23,10 @@ function Workshop({ favourites, workshop }) {
     </section>
   );
 }
+
+Workshop.propTypes = {
+  favourites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  workshop: PropTypes.bool.isRequired,
+};
 
 export default Workshop;

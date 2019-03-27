@@ -1,8 +1,9 @@
-import React from "react";
-import TimerMachine from "./TimerMachine";
-import cx from "classnames";
+import React from 'react';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import TimerMachine from './TimerMachine';
 
-import "../styles/components/favourite.scss";
+import '../styles/components/favourite.scss';
 
 class Favourite extends React.Component {
   constructor() {
@@ -11,28 +12,34 @@ class Favourite extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    this.setState({
-      active: !this.state.active
-    });
+  handleClick() {
+    this.setState(prevState => ({
+      active: !prevState.active,
+    }));
   }
 
   render() {
-    const favouriteclasses = cx("workshop__favourite", {
-      active: this.state.active
+    const { active } = this.state;
+    const { favourite } = this.props;
+    const favouriteclasses = cx('workshop__favourite', {
+      active,
     });
 
     return (
       <li className="workshop__listitem">
         <h3>
           <a href="#" className={favouriteclasses} onClick={this.handleClick}>
-            {this.props.favourite}
+            {favourite}
           </a>
         </h3>
-        {this.state.active ? <TimerMachine /> : null}
+        {active ? <TimerMachine /> : null}
       </li>
     );
   }
 }
+
+Favourite.propTypes = {
+  favourite: PropTypes.string.isRequired,
+};
 
 export default Favourite;

@@ -13,9 +13,20 @@
     padding: $main-padding * 0.5;
     text-align: center;
     text-decoration: none;
+    // de-style button
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+
     &:hover,
+    &:focus,
     &.active {
       color: $primary-color;
+    }
+    &:focus {
+      outline: none;
     }
     &.active svg.MuiSvgIcon-root-1 {
       color: lighten($primary-color, 20%);
@@ -25,6 +36,7 @@
     }
   }
 }
+
 .tooltip {
   display: block;
   text-decoration: none;

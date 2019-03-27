@@ -1,7 +1,7 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react';
+import cx from 'classnames';
 
-import "../styles/components/timer.scss";
+import '../styles/components/timer.scss';
 
 class TimerMachine extends React.Component {
   constructor() {
@@ -9,10 +9,12 @@ class TimerMachine extends React.Component {
     this.state = { timeleft: 10000 };
     this.tick = this.tick.bind(this);
   }
+
   componentDidMount() {
     this.start = new Date();
     this.interval = setInterval(this.tick, 200);
   }
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -29,11 +31,12 @@ class TimerMachine extends React.Component {
   }
 
   render() {
-    let remaining = this.state.timeleft;
-    let timer = Math.round(remaining / 1000);
-    const timerclasses = cx("workshop__timer", {
-      "workshop--timeout": remaining < 5000,
-      "workshop--timeend": remaining === 0
+    const { timeleft } = this.state;
+    const remaining = timeleft;
+    const timer = Math.round(remaining / 1000);
+    const timerclasses = cx('workshop__timer', {
+      'workshop--timeout': remaining < 5000,
+      'workshop--timeend': remaining === 0,
     });
 
     return <p className={timerclasses}>{timer}</p>;

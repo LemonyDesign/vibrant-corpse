@@ -1,8 +1,9 @@
-import React from "react";
-import Word from "./Word";
-import GeneratedListContainer from "../containers/GeneratedListContainer";
-import cx from "classnames";
-import "../styles/components/generate.scss";
+import React from 'react';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import Word from './Word';
+import GeneratedListContainer from '../containers/GeneratedListContainer';
+import '../styles/components/generate.scss';
 
 function Generate({
   modifiers,
@@ -15,18 +16,18 @@ function Generate({
   clearBases,
   modifierOptions,
   baseOptions,
-  workshop
+  workshop,
 }) {
   const notEmpty = modifiers.length > 0 && basewords.length > 0;
   const sameLength = modifiers.length === basewords.length;
 
-  const generateclass = cx("generate", {
+  const generateclass = cx('generate', {
     completed: notEmpty && sameLength,
-    "": !(notEmpty && sameLength)
+    '': !(notEmpty && sameLength),
   });
 
-  const wordlistclass = cx("wordlists", {
-    conceal: workshop === true
+  const wordlistclass = cx('wordlists', {
+    conceal: workshop === true,
   });
 
   return (
@@ -35,8 +36,10 @@ function Generate({
         <h2 className="wordlists__title">The Generator</h2>
 
         <p className="wordlists__intro">
-          <strong>Generate</strong> words to create a list of &lsquo;vibrant
-          corpses&rsquo; by selecting below.
+          <strong>Generate</strong>
+          {' '}
+words to create a list of &lsquo;vibrant corpses&rsquo; by
+          selecting below.
         </p>
         <div className="generate__generator">
           <ul className="generate__modifier menu--settings">
@@ -47,9 +50,7 @@ function Generate({
                 className="generator select1"
                 onChange={() => {
                   handleModifierOptions();
-                  modifierOptions !== "default"
-                    ? fetchModifierWords()
-                    : clearModifiers();
+                  modifierOptions !== 'default' ? fetchModifierWords() : clearModifiers();
                 }}
                 name="modifier"
               >
@@ -59,9 +60,9 @@ function Generate({
               </select>
             </li>
 
-            {modifiers.map(modifier => {
-              return <Word key={modifier.word} modifier={modifier.word} />;
-            })}
+            {modifiers.map(modifier => (
+              <Word key={modifier.word} modifier={modifier.word} />
+            ))}
           </ul>
           <ul className="generate__base menu--settings">
             <li>
@@ -71,7 +72,7 @@ function Generate({
                 className="generator select2"
                 onChange={() => {
                   handleBaseOptions();
-                  baseOptions !== "default" ? fetchBaseWords() : clearBases();
+                  baseOptions !== 'default' ? fetchBaseWords() : clearBases();
                 }}
                 name="base"
               >
@@ -82,9 +83,9 @@ function Generate({
                 <option value="verb">Verb</option>
               </select>
             </li>
-            {basewords.map(base => {
-              return <Word key={base.word} baseword={base.word} />;
-            })}
+            {basewords.map(base => (
+              <Word key={base.word} baseword={base.word} />
+            ))}
           </ul>
         </div>
       </section>
@@ -92,5 +93,19 @@ function Generate({
     </section>
   );
 }
+
+Generate.propTypes = {
+  modifiers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  basewords: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleModifierOptions: PropTypes.func.isRequired,
+  fetchModifierWords: PropTypes.func.isRequired,
+  handleBaseOptions: PropTypes.func.isRequired,
+  fetchBaseWords: PropTypes.func.isRequired,
+  clearModifiers: PropTypes.func.isRequired,
+  clearBases: PropTypes.func.isRequired,
+  modifierOptions: PropTypes.string.isRequired,
+  baseOptions: PropTypes.string.isRequired,
+  workshop: PropTypes.bool.isRequired,
+};
 
 export default Generate;

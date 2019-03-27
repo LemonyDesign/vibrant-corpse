@@ -1,6 +1,6 @@
-import React from "react";
-import "../styles/components/word.scss";
-import PropTypes from "prop-types";
+import React from 'react';
+import '../styles/components/word.scss';
+import PropTypes from 'prop-types';
 
 function Word({ modifier, baseword }) {
   return (
@@ -16,8 +16,8 @@ function Word({ modifier, baseword }) {
 }
 
 Word.propTypes = {
-  modifierword: PropTypes.string,
-  baseword: PropTypes.string
+  modifier: PropTypes.string.isRequired,
+  baseword: PropTypes.string.isRequired,
 };
 
 export default Word;
