@@ -48,9 +48,9 @@ words to create a list of &lsquo;vibrant corpses&rsquo; by
               <select
                 value={modifierOptions}
                 className="generator select1"
-                onChange={() => {
-                  handleModifierOptions();
-                  modifierOptions !== 'default' ? fetchModifierWords() : clearModifiers();
+                onChange={(event) => {
+                  handleModifierOptions(event);
+                  event.target.value !== 'default' ? fetchModifierWords(event) : clearModifiers();
                 }}
                 name="modifier"
               >
@@ -70,9 +70,9 @@ words to create a list of &lsquo;vibrant corpses&rsquo; by
               <select
                 value={baseOptions}
                 className="generator select2"
-                onChange={() => {
-                  handleBaseOptions();
-                  baseOptions !== 'default' ? fetchBaseWords() : clearBases();
+                onChange={(event) => {
+                  handleBaseOptions(event);
+                  event.target.value !== 'default' ? fetchBaseWords(event) : clearBases();
                 }}
                 name="base"
               >

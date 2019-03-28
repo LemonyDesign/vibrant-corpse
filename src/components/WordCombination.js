@@ -58,7 +58,7 @@ WordCombination.propTypes = {
   selectItem: PropTypes.func.isRequired,
   deselectItem: PropTypes.func.isRequired,
   corpseitem: PropTypes.string.isRequired,
-  isFavourite: PropTypes.func.isRequired,
+  isFavourite: PropTypes.string.isRequired,
   modifier: PropTypes.string.isRequired,
   baseword: PropTypes.string.isRequired,
   modifierdef: PropTypes.string.isRequired,

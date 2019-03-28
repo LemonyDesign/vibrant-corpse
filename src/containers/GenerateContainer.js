@@ -17,20 +17,20 @@ export const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleModifierOptions: () => {
+  handleModifierOptions: (event) => {
     dispatch(setModifierOptions(event.target.value));
   },
-  fetchModifierWords: () => {
+  fetchModifierWords: (event) => {
     dispatch(fetchWords(event.target.value, event.target.name));
   },
   clearModifiers: () => {
     dispatch(clearModifierWords());
     dispatch(clearModifierOptions());
   },
-  handleBaseOptions: () => {
+  handleBaseOptions: (event) => {
     dispatch(setBaseOptions(event.target.value));
   },
-  fetchBaseWords: () => {
+  fetchBaseWords: (event) => {
     dispatch(fetchWords(event.target.value, event.target.name));
   },
   clearBases: () => {

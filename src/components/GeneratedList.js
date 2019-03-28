@@ -95,7 +95,7 @@ GeneratedList.propTypes = {
   modifiers: PropTypes.arrayOf(PropTypes.object).isRequired,
   basewords: PropTypes.arrayOf(PropTypes.object).isRequired,
   started: PropTypes.bool.isRequired,
-  favourites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default GeneratedList;

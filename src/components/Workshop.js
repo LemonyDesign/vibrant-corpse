@@ -25,7 +25,7 @@ function Workshop({ favourites, workshop }) {
 }
 
 Workshop.propTypes = {
-  favourites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
   workshop: PropTypes.bool.isRequired,
 };
 
