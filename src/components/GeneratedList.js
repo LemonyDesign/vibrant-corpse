@@ -37,10 +37,6 @@ intriguing &lsquo;vibrant corpses&rsquo; for workshopping.
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
           ? modifiers.map((item, i) => {
-            const modifier = item.word;
-            const baseword = basewords[i].word;
-            const modifierdef = item.definition;
-            const baseworddef = basewords[i].definition;
             const corpseitem = `${item.word}  ${basewords[i].word}`;
 
             const isFavourite = favourites.find(
@@ -49,10 +45,8 @@ intriguing &lsquo;vibrant corpses&rsquo; for workshopping.
 
             return (
               <WordCombinationContainer
-                modifier={modifier}
-                baseword={baseword}
-                modifierdef={modifierdef}
-                baseworddef={baseworddef}
+                modifier={item}
+                baseword={basewords[i]}
                 corpseitem={corpseitem}
                 key={corpseitem}
                 isFavourite={isFavourite}

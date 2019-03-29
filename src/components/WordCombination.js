@@ -11,9 +11,10 @@ function WordCombination({
   isFavourite,
   modifier,
   baseword,
-  modifierdef,
-  baseworddef,
 }) {
+  const { modWord, modDefinition } = modifier;
+  const { baseWord, baseDefinition } = baseword;
+
   const linksclasses = cx('corpses__links', {
     active: isFavourite,
   });
@@ -39,13 +40,11 @@ function WordCombination({
         <span className="tooltip-content">
           <span className="tooltip-text">
             <span className="tooltip-inner">
-              <span className="wd">{modifier}</span>
-              {' '}
-              {modifierdef}
+              <span className="wd">{modWord}</span>
+              {modDefinition}
               <br />
-              <span className="wd">{baseword}</span>
-              {' '}
-              {baseworddef}
+              <span className="wd">{baseWord}</span>
+              {baseDefinition}
             </span>
           </span>
         </span>
@@ -59,10 +58,8 @@ WordCombination.propTypes = {
   deselectItem: PropTypes.func.isRequired,
   corpseitem: PropTypes.string.isRequired,
   isFavourite: PropTypes.string,
-  modifier: PropTypes.string.isRequired,
-  baseword: PropTypes.string.isRequired,
-  modifierdef: PropTypes.string.isRequired,
-  baseworddef: PropTypes.string.isRequired,
+  modifier: PropTypes.objectOf(PropTypes.string).isRequired,
+  baseword: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 WordCombination.defaultProps = {
