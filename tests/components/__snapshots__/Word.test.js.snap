@@ -9,7 +9,10 @@ exports[`Word should render correctly 1`] = `
     Crazy
   </span>
   <span
+    basewords="Monkey"
     className="baseword__items"
-  />
+  >
+    Monkey
+  </span>
 </li>
 `;
