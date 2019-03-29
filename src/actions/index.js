@@ -1,7 +1,21 @@
+export function setModifierWords(modifierWords) {
+  return {
+    type: 'MODIFIER_WORDS_ADD',
+    modifierWords,
+  };
+}
+
+export function setBaseWords(baseWords) {
+  return {
+    type: 'BASE_WORDS_ADD',
+    baseWords,
+  };
+}
+
 export function fetchWords(partofspeech, wordtype) {
-  return function (dispatch, getState) {
-    let tempArr = [];
-    for (let i = 0; i < 3; i++) {
+  let tempArr = [];
+  return function (dispatch) {
+    for (let i = 0; i < 3; i += 1) {
       fetch('/api/words', {
         method: 'post',
         body: JSON.stringify({ partofspeech }),
@@ -14,26 +28,13 @@ export function fetchWords(partofspeech, wordtype) {
           tempArr = tempArr.concat([content]);
           if (wordtype === 'modifier') {
             dispatch(setModifierWords(tempArr));
-          } else if (wordtype === 'base') {
+          }
+          if (wordtype === 'base') {
             dispatch(setBaseWords(tempArr));
           }
         })
-        .catch(console.error);
+        .catch(error => console.log('FETCH ERROR', error.message));
     }
-  };
-}
-
-export function setModifierWords(modifierWords) {
-  return {
-    type: 'MODIFIER_WORDS_ADD',
-    modifierWords,
-  };
-}
-
-export function setBaseWords(baseWords) {
-  return {
-    type: 'BASE_WORDS_ADD',
-    baseWords,
   };
 }
 

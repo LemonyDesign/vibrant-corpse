@@ -58,11 +58,15 @@ WordCombination.propTypes = {
   selectItem: PropTypes.func.isRequired,
   deselectItem: PropTypes.func.isRequired,
   corpseitem: PropTypes.string.isRequired,
-  isFavourite: PropTypes.string.isRequired,
+  isFavourite: PropTypes.string,
   modifier: PropTypes.string.isRequired,
   baseword: PropTypes.string.isRequired,
   modifierdef: PropTypes.string.isRequired,
   baseworddef: PropTypes.string.isRequired,
+};
+
+WordCombination.defaultProps = {
+  isFavourite: '',
 };
 
 export default WordCombination;

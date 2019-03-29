@@ -30,7 +30,21 @@
     right: 0;
     top: 0;
   }
-  a {
-    text-decoration: none;
+  button {
+    // de-style button
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    &:hover,
+    &:focus,
+    &.active {
+      color: $primary-color;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }

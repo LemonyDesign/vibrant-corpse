@@ -16,8 +16,13 @@ function Word({ modifier, baseword }) {
 }
 
 Word.propTypes = {
-  modifier: PropTypes.string.isRequired,
-  baseword: PropTypes.string.isRequired,
+  modifier: PropTypes.string,
+  baseword: PropTypes.string,
+};
+
+Word.defaultProps = {
+  modifier: '',
+  baseword: '',
 };
 
 export default Word;

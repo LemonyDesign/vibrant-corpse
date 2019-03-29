@@ -28,9 +28,9 @@ class Favourite extends React.Component {
     return (
       <li className="workshop__listitem">
         <h3>
-          <a href="#" className={favouriteclasses} onClick={this.handleClick}>
+          <button type="button" className={favouriteclasses} onClick={this.handleClick}>
             {favourite}
-          </a>
+          </button>
         </h3>
         {active ? <TimerMachine /> : null}
       </li>
