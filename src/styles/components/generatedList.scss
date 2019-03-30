@@ -9,57 +9,9 @@
     position: relative;
     top: 4px;
   }
-  &__workshop,
-  &__regenerate {
-    margin: $main-padding $main-padding * 0.5;
-    display: inline-flex;
-    vertical-align: middle;
-    width: auto;
-    border: 1px dotted $text-color;
-    padding: $main-padding * 0.5;
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    > svg {
-      font-size: 1rem;
-    }
-    &:hover {
-      background: $text-color;
-      color: $background-color;
-    }
-    &:focus {
-      outline: 1px solid #fff;
-      outline-offset: -4px;
-    }
-    &:active {
-      transform: scale(0.99);
-    }
-  }
-  &__workshop {
-    background: $text-color;
-    color: $background-color;
-
-    &:hover {
-      background: $primary-color;
-      color: $background-color;
-    }
-  }
-
-  &__error {
-    display: none;
-    &.show {
-      display: block;
-      color: red;
-    }
-  }
 }
 
 .corpses.active {
-  // opacity: 1;
   display: block;
 }
 

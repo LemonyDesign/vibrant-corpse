@@ -1,12 +1,13 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import Refresh from '@material-ui/icons/Refresh';
 import WordCombinationContainer from '../containers/WordCombinationContainer';
+import GenerateRefresh from './GenerateRefresh';
+import GoWorkshop from './GoWorkshop';
 import '../styles/components/generatedList.scss';
 
 function GeneratedList({
-  startWorkshop,
+  goWorkshop,
   displayWorkshop,
   handleRegenerate,
   modifiers,
@@ -20,10 +21,6 @@ function GeneratedList({
   const corpsesclasses = cx('corpses', {
     active: notEmpty && sameLength,
     '': !(notEmpty && sameLength),
-  });
-
-  const errorclass = cx('corpses__error', {
-    show: started === true && favourites.length === 0,
   });
 
   return (
@@ -56,34 +53,22 @@ intriguing &lsquo;vibrant corpses&rsquo; for workshopping.
           : null}
       </ul>
 
-      <button
-        type="button"
-        className="corpses__workshop"
-        onClick={(event) => {
-          event.preventDefault();
-          startWorkshop();
-          favourites.length !== 0 ? displayWorkshop() : null;
-        }}
-      >
-        Start Workshopping
-      </button>
-
-      <button
-        type="button"
-        className="corpses__regenerate"
-        onClick={event => handleRegenerate(event)}
-      >
-        <span className="show--screenreaders">Regenerate</span>
-        <Refresh />
-      </button>
-      <p className={errorclass}>Please choose at least one vibrant corpse.</p>
-      <p>No inspirations? Regenerate</p>
+      <GoWorkshop
+        goWorkshop={goWorkshop}
+        displayWorkshop={displayWorkshop}
+        favourites={favourites}
+      />
+      <GenerateRefresh
+        handleRegenerate={handleRegenerate}
+        started={started}
+        favourites={favourites}
+      />
     </section>
   );
 }
 
 GeneratedList.propTypes = {
-  startWorkshop: PropTypes.func.isRequired,
+  goWorkshop: PropTypes.func.isRequired,
   displayWorkshop: PropTypes.func.isRequired,
   handleRegenerate: PropTypes.func.isRequired,
   modifiers: PropTypes.arrayOf(PropTypes.object).isRequired,

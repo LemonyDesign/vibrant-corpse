@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import GeneratedList from '../components/GeneratedList';
-import { startWorkshop,
+import { goWorkshop,
   displayWorkshop,
   clearModifierWords,
   clearBaseWords,
@@ -17,7 +17,7 @@ export const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  startWorkshop: () => dispatch(startWorkshop()),
+  goWorkshop: () => dispatch(goWorkshop()),
   displayWorkshop: () => dispatch(displayWorkshop()),
 
   handleRegenerate: (event) => {

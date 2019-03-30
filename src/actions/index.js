@@ -76,7 +76,7 @@ export function clearBaseOptions() {
   };
 }
 
-export function startWorkshop() {
+export function goWorkshop() {
   return {
     type: 'WORKSHOP_START',
   };
