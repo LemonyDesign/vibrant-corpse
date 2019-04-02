@@ -2,7 +2,8 @@ import React from 'react';
 import '../styles/components/wordCombination.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { AddCircle, RemoveCircle, Info } from '@material-ui/icons';
+import { AddCircle, RemoveCircle } from '@material-ui/icons';
+import Tooltip from './Tooltip';
 
 function WordCombination({
   selectItem,
@@ -12,9 +13,6 @@ function WordCombination({
   modifier,
   baseword,
 }) {
-  const { modWord, modDefinition } = modifier;
-  const { baseWord, baseDefinition } = baseword;
-
   const linksclasses = cx('corpses__links', {
     active: isFavourite,
   });
@@ -34,21 +32,7 @@ function WordCombination({
         {corpseitem}
       </button>
 
-      {/* TODO: build accessible tooltip button */}
-      <a className="tooltip" href="#">
-        <Info />
-        <span className="tooltip-content">
-          <span className="tooltip-text">
-            <span className="tooltip-inner">
-              <span className="wd">{modWord}</span>
-              {modDefinition}
-              <br />
-              <span className="wd">{baseWord}</span>
-              {baseDefinition}
-            </span>
-          </span>
-        </span>
-      </a>
+      <Tooltip modifier={modifier} baseword={baseword} />
     </li>
   );
 }
