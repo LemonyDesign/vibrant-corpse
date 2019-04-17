@@ -1,10 +1,10 @@
-function setOptionsState(
+const setOptionsState = (
   state = {
     modifierOptions: '',
     baseOptions: '',
   },
   action,
-) {
+) => {
   switch (action.type) {
     case 'MODIFIER_OPTIONS_SET':
       return Object.assign({}, state, {
@@ -23,6 +23,6 @@ function setOptionsState(
     default:
       return state;
   }
-}
+};
 
 export default setOptionsState;
