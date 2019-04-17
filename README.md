@@ -42,6 +42,7 @@ This will start the node server at localhost:8080 for the dev environment.
 - Express
 - Node.js
 - ES Lint &amp; Prettier
+- Jest &amp; Enzyme test suite
 
 **The app is currently under development:**
 
