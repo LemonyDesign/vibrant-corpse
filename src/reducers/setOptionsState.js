@@ -3,7 +3,7 @@ const setOptionsState = (
     modifierOptions: '',
     baseOptions: '',
   },
-  action,
+  action
 ) => {
   switch (action.type) {
     case 'MODIFIER_OPTIONS_SET':

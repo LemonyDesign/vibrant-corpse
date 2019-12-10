@@ -7,7 +7,7 @@ function GoWorkshop({ goWorkshop, displayWorkshop, favourites }) {
     <button
       type="button"
       className="corpses__workshop"
-      onClick={(event) => {
+      onClick={event => {
         event.preventDefault();
         goWorkshop();
         if (favourites.length !== 0) {

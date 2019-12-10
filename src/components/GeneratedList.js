@@ -27,29 +27,28 @@ function GeneratedList({
     <section className={corpsesclasses}>
       <h2>Choose for Workshop</h2>
       <p className="corpses__intro">
-        <strong>Add</strong>
-        {' '}
-intriguing &lsquo;vibrant corpses&rsquo; for workshopping.
+        <strong>Add</strong> intriguing &lsquo;vibrant corpses&rsquo; for
+        workshopping.
       </p>
       <ul className="corpses__addlist  menu--settings">
         {notEmpty && sameLength
           ? modifiers.map((item, i) => {
-            const corpseitem = `${item.word}  ${basewords[i].word}`;
+              const corpseitem = `${item.word}  ${basewords[i].word}`;
 
-            const isFavourite = favourites.find(
-              currentFavourite => currentFavourite === corpseitem,
-            );
+              const isFavourite = favourites.find(
+                currentFavourite => currentFavourite === corpseitem
+              );
 
-            return (
-              <WordCombinationContainer
-                modifier={item}
-                baseword={basewords[i]}
-                corpseitem={corpseitem}
-                key={corpseitem}
-                isFavourite={isFavourite}
-              />
-            );
-          })
+              return (
+                <WordCombinationContainer
+                  modifier={item}
+                  baseword={basewords[i]}
+                  corpseitem={corpseitem}
+                  key={corpseitem}
+                  isFavourite={isFavourite}
+                />
+              );
+            })
           : null}
       </ul>
 

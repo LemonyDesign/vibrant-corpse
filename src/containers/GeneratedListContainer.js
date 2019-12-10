@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import GeneratedList from '../components/GeneratedList';
-import { goWorkshop,
+import {
+  goWorkshop,
   displayWorkshop,
   clearModifierWords,
   clearBaseWords,
   clearModifierOptions,
-  clearBaseOptions } from '../actions';
+  clearBaseOptions,
+} from '../actions';
 
 export const mapStateToProps = state => ({
-  modifiers: state.addModifierWords,
-  basewords: state.addBaseWords,
+  modifiers: state.isFetchingModifiers.modifiers,
+  basewords: state.isFetchingBasewords.basewords,
   modifierOptions: state.setOptionsState.modifierOptions,
   baseOptions: state.setOptionsState.baseOptions,
   started: state.setStartWorkshop,
@@ -20,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
   goWorkshop: () => dispatch(goWorkshop()),
   displayWorkshop: () => dispatch(displayWorkshop()),
 
-  handleRegenerate: (event) => {
+  handleRegenerate: event => {
     event.preventDefault();
     dispatch(clearModifierWords());
     dispatch(clearBaseWords());
@@ -31,5 +33,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(GeneratedList);

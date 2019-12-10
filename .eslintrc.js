@@ -1,5 +1,5 @@
 module.exports = {
-  extends: 'airbnb',
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   parser: 'babel-eslint',
   env: {
     browser: true,
@@ -20,7 +20,10 @@ module.exports = {
         ImportDeclaration: 'never',
       },
     ],
-    'no-underscore-dangle': ['error', { allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] }],
+    'no-underscore-dangle': [
+      'error',
+      { allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] },
+    ],
     'func-names': ['error', 'never'],
     'jsx-a11y/label-has-for': [
       2,
