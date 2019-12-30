@@ -16,7 +16,7 @@ function GoWorkshop({ goWorkshop, displayWorkshop, favourites }) {
         return null;
       }}
     >
-      Start Workshopping
+      Enter Workshop
     </button>
   );
 }
