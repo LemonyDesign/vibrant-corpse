@@ -1,13 +1,7 @@
---CREATE DATABASE vibrantcorpse
--- ORIGIN TABLE (to amend use drop as below)
-
-DROP TABLE IF EXISTS collective_writer;
 DROP TABLE IF EXISTS writing;
 DROP TABLE IF EXISTS favourite;
-DROP TABLE IF EXISTS collective;
 DROP TABLE IF EXISTS writer;
 
--- IMMUTABLE BASE TABLE FOR writer(s) (ONE-) --
 CREATE TABLE writer (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
@@ -36,8 +30,6 @@ CREATE TABLE writing (
   FOREIGN KEY (favourite_id) REFERENCES favourite (id),
   FOREIGN KEY (writer_id) REFERENCES writer (id)
 );
-
--- **** INSERT VALUES *** --
 
 INSERT INTO writer VALUES (1, 'Mark', 'mark@gmail.com', 'horse');
 INSERT INTO writer VALUES (2, 'Debbie', 'debbie@gmail.com', 'pig');

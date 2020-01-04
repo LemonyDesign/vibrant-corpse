@@ -1,0 +1,97 @@
+@import '../base/_variables.scss';
+@import '../base/_button.scss';
+
+form {
+  margin: 0 auto;
+}
+input,
+textarea {
+  background-color: lighten($background-color, 20%);
+  color: $text-color;
+  display: inline-block;
+  transition: 300ms ease;
+  border: 0;
+  margin: 0.3rem 0;
+  padding: $main-padding * 0.7;
+  overflow: hidden;
+  outline: 0;
+  width: calc(100% - 2.5rem);
+}
+
+.frm--inline {
+  display: flex;
+  input {
+    flex: 3;
+    -webkit-appearance: none;
+  }
+  .btn-submit {
+    flex: 1;
+  }
+}
+
+textarea {
+  background-color: lighten($background-color, 15%);
+  // height: 100px;
+}
+
+form div {
+  position: relative;
+  .validity {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+  }
+}
+
+input:invalid + span.validity:after {
+  content: '✖';
+  color: $primary-color;
+}
+
+input:valid + span.validity:after {
+  content: '✓';
+  color: $primary-color;
+}
+
+label {
+  text-align: left;
+  font-size: 0.85rem;
+  display: inline-block;
+  // padding: 0.5rem 0;
+  width: 100%;
+  color: $primary-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: darken($text-color, 20%);
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: darken($text-color, 20%);
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: ldarken($text-color, 20%);
+}
+
+// MEDIA QUERIES
+@media (min-width: 768px) {
+}
+
+@media (min-width: 960px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1440px) {
+}

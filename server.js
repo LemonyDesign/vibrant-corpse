@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const pgp = require('pg-promise')();
 const fetch = require('node-fetch');
 const path = require('path');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 const app = express();
 const db = pgp({
@@ -30,6 +33,7 @@ function createWordObj(content) {
   );
 }
 
+// fetch from words api
 app.post('/api/words', (req, res) => {
   const url = `https://wordsapiv1.p.mashape.com/words/?partOfSpeech=${req.body.partofspeech}&random=true`;
 
@@ -44,7 +48,22 @@ app.post('/api/words', (req, res) => {
     .catch(console.error);
 });
 
-app.get('/api/writers', function(req, res) {
+app.post('/api/writer', (req, res) => {
+  bcrypt
+    .hash(req.body.registrationPassword, saltRounds)
+    .then(function(hash) {
+      return db.one(
+        `INSERT INTO writer (first_name, email, hash) VALUES ($1,$2,$3) RETURNING id`,
+        [req.body.firstName, req.body.registrationEmail, hash]
+      );
+    })
+    .then(result => {
+      return res.json({ id: result.id });
+    })
+    .catch(error => res.json({ error: error.message }));
+});
+
+app.get('/api/writer', function(req, res) {
   db.any('SELECT * FROM writer')
     .then(function(data) {
       res.json(data);

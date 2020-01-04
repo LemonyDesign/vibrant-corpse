@@ -3,6 +3,7 @@
 ### A brainstorming app based on randomized word combinations (adjective-noun / adverb-verb) fetched from Words API.
 
 > View live demo **[vibrant-corpse.herokuapp.com](https://vibrant-corpse.herokuapp.com/)**
+> View wireframe **[Balsalmiq MVP wireframe](https://balsamiq.cloud/skaraus/pxyxy70/r2278)**
 
 (NB _app under development_)
 
@@ -41,15 +42,23 @@ This will start the node server at localhost:8080 for the dev environment.
 - SCSS
 - Express
 - Node.js
+- Postgresql: **[View schema diagram](https://dbdiagram.io/d/5e0a0637edf08a25543f8004)**
 - ES Lint &amp; Prettier
 
 **The app is currently under development:**
 
-- Use react-router with pose to create suitable endpoints, and smooth transitions
-- Textarea functionality set to fade… whenever user pauses
-- Currently desktop-oriented design; address UX for mobile usage - server a different view for writing
+- Add Postgresql database plus login, so that users can access and store writing
+- Use react-router with pose to create suitable endpoints
+- Put, Patch writing for editing
+- Add / Delete favourites - and writing, with warning
+- Smooth transitions (Post animation)
 
 ### Looking forward
 
-- Database plus login, so that users can access and store workshopped content
+- private public function
+- Develop writing groups functionality, multiple users in a writing group, voting system (using sockets.io) to co-ordinate which vibrant corpse to work on, enabling allowed access within the group to view writing
+
+- Textarea functionality set to fade… whenever user pauses
+- Currently desktop-oriented design; address UX for mobile usage - server a different view for writing
+
 - Develop using GraphQL API approach, with OED
