@@ -1,5 +1,5 @@
-@import "_normalize";
-@import "variables";
+@import '_normalize';
+@import 'variables';
 
 /* ==== BASE ==== */
 html {
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
   margin: 0;
   padding: 0;
   background: $background-color;
@@ -81,5 +81,9 @@ a {
   }
 }
 
-// @media (min-width: 1200px)
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
 // @media (min-width: 1440px)

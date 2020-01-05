@@ -1,0 +1,24 @@
+@import '../base/_variables.scss';
+
+.hero {
+  padding: $main-padding $main-padding * 1.5;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    width: 80%;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__content {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__content {
+    font-size: 1.5rem;
+  }
+}
+// @media (min-width: 1440px)

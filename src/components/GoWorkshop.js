@@ -1,8 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/components/goWorkshop.scss';
 
-function GoWorkshop({ goWorkshop, displayWorkshop, favourites }) {
+function GoWorkshop({ goWorkshop, favourites }) {
+  const history = useHistory();
+
+  function redirectToWorkshop() {
+    history.push('/workshop');
+  }
+
   return (
     <button
       type="button"
@@ -11,7 +18,7 @@ function GoWorkshop({ goWorkshop, displayWorkshop, favourites }) {
         event.preventDefault();
         goWorkshop();
         if (favourites.length !== 0) {
-          return displayWorkshop();
+          return redirectToWorkshop();
         }
         return null;
       }}
@@ -23,7 +30,6 @@ function GoWorkshop({ goWorkshop, displayWorkshop, favourites }) {
 
 GoWorkshop.propTypes = {
   goWorkshop: PropTypes.func.isRequired,
-  displayWorkshop: PropTypes.func.isRequired,
   favourites: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

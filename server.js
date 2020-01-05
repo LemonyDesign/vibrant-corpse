@@ -86,7 +86,11 @@ app.get('/api/writing', function(req, res) {
 // BASE REQUEST
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/dist/index.html`));
+  res.sendFile(path.join(`${__dirname}/dist/index.html`), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 const port = process.env.PORT || 8080;
 

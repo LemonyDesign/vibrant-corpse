@@ -5,7 +5,7 @@ import '../styles/components/register.scss';
 function Register({ handleChangeRegister, handleSubmitRegister }) {
   return (
     <>
-      <section className="registration container">
+      <section className="registration">
         <header className="registration__header">
           <h1 className="registration__title">Register</h1>
         </header>
@@ -44,6 +44,7 @@ function Register({ handleChangeRegister, handleSubmitRegister }) {
               className="registration-frm__email"
               placeholder="Email"
               type="email"
+              autoComplete="username"
               onChange={event => handleChangeRegister(event)}
               name="registrationEmail"
               required
@@ -62,6 +63,7 @@ function Register({ handleChangeRegister, handleSubmitRegister }) {
               className="registration-frm__password"
               placeholder="Password"
               type="password"
+              autoComplete="current-password"
               onChange={event => handleChangeRegister(event)}
               name="registrationPassword"
               required

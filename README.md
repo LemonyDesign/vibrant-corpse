@@ -3,6 +3,7 @@
 ### A brainstorming app based on randomized word combinations (adjective-noun / adverb-verb) fetched from Words API.
 
 > View live demo **[vibrant-corpse.herokuapp.com](https://vibrant-corpse.herokuapp.com/)**
+
 > View wireframe **[Balsalmiq MVP wireframe](https://balsamiq.cloud/skaraus/pxyxy70/r2278)**
 
 (NB _app under development_)

@@ -7,3 +7,10 @@
 .registration__title {
   margin-bottom: $main-padding * 0.5;
 }
+
+// MEDIA QUERIES
+@media (min-width: 768px) {
+  .registration {
+    width: 80%;
+  }
+}
