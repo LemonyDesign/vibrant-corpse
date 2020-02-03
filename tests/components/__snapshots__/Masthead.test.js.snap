@@ -1,25 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Masthead should render correctly 1`] = `
-<header
-  className="masthead"
->
-  <h1
-    className="masthead__title"
+Array [
+  <nav
+    className="navigation"
   >
-    Vibrant Corpse
-  </h1>
-  <div
-    className="masthead__description"
+    <ul>
+      <li>
+        <a
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <header
+    className="masthead"
   >
-    <p>
-      Vibrant corpse (
-      <em>
-        cadavre exquis
-      </em>
-       
-      in French) is a game invented by the Surrealists aimed at stimulating creative response. The method involves the assemblage of generated words or images, according to an agreed rule. This game seeks to mimic the original by randomly generating word lists then combining the results to create intriguing combinations that may be chosen for ‘workshopping’ – 5 minutes of free-flow writing.
-    </p>
-  </div>
-</header>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <h1
+        className="masthead__title"
+      >
+        Vibrant Corpse
+      </h1>
+    </a>
+  </header>,
+]
 `;
