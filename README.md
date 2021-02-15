@@ -45,6 +45,7 @@ This will start the node server at localhost:8080 for the dev environment.
 - Node.js
 - Postgresql: **[View schema diagram](https://dbdiagram.io/d/5e0a0637edf08a25543f8004)**
 - ES Lint &amp; Prettier
+- Jest &amp; Enzyme test suite
 
 **The app is currently under development:**
 
